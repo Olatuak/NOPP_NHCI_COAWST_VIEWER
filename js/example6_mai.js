@@ -19,15 +19,17 @@ var map = L.map('map', {
     },
     timeDimension: true,
     timeDimensionOptions: {
-        timeInterval: "2020-11-25/2020-11-26",
+        timeInterval: "2021-01-13/2021-01-14",
         period: "PT1H",
-        currentTime: Date.parse("2020-11-25T12:00:00Z")
+        currentTime: Date.parse("2021-01-13T06:00:00Z")
         //currentTime: Date.parse(dateTime)
     },
     center: [29.8, -81.2]
 });
 
-var sapoWMS = "https://icoast.rc.ufl.edu/thredds/wms/roms_his_agg/AGG_ROMS_HIS.nc";
+//var sapoWMS = "https://icoast.rc.ufl.edu/thredds/wms/roms_his_agg/AGG_ROMS_HIS.nc";
+var sapoWMS = "https://icoast.rc.ufl.edu/thredds/wms/ROMS_HIS202101/forecast_his_2021011306_mask.nc";
+
 var sapoHeightLayer = L.tileLayer.wms(sapoWMS, {
     layers: 'zeta',
     format: 'image/png',
@@ -67,62 +69,44 @@ var sapoPeakDirectionTimeLayer = L.timeDimension.layer.wms(sapoPeakDirectionLaye
 var sapoLegend = L.control({
     position: 'bottomright'
 });
+
 sapoLegend.onAdd = function(map) {
-    var src = sapoWMS + "?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetLegendGraphic&LAYER=zeta&colorscalerange=-1.5,1.5";
+    var src = sapoWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=zeta&colorscalerange=-1.5,1.5&PALETTE=rainbow";
     var div = L.DomUtil.create('div', 'info legend');
     div.innerHTML +=
         '<img src="' + src + '" alt="legend">';
     return div;
 };
-
-
 
 var sapoMeanDirectionLegend = L.control({
-    position: 'bottomright'
+    position: 'bottomleft'
 });
 sapoMeanDirectionLegend.onAdd = function(map) {
+    var src = sapoWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=Hwave&colorscalerange=0,3&PALETTE=rainbow";
     var div = L.DomUtil.create('div', 'info legend');
     div.innerHTML +=
         '<img src="' + src + '" alt="legend">';
     return div;
 };
 
-/*var sapoPeakDirectionLegend = L.control({
-    position: 'bottomright'
-});
-sapoPeakDirectionLegend.onAdd = function(map) {
-    var div = L.DomUtil.create('div', 'info legend');
-    div.innerHTML += '<img src="img/grey-arrow.png" /> peak direction';
-    return div;
-};
-*/
-
-
 var overlayMaps = {
-    "Icoast - water level": sapoHeightTimeLayer,
-    "Icoast - significant wave height": sapoMeanDirectionTimeLayer
-//    "SAPO - direction of the peak": sapoPeakDirectionTimeLayer
+    "Icoast - water levels": sapoHeightTimeLayer,
+    "Icoast - wave height": sapoMeanDirectionTimeLayer
 };
-
-
 
 map.on('overlayadd', function(eventLayer) {
-    if (eventLayer.name == 'Icoast - water level') {
+    if (eventLayer.name == 'Icoast - water levels') {
         sapoLegend.addTo(this);
-    } else if (eventLayer.name == 'Icoast - Significant Wave Height') {
+    } else if (eventLayer.name == 'Icoast - wave height') {
         sapoMeanDirectionLegend.addTo(this);
-//    } else if (eventLayer.name == 'SAPO - direction of the peak') {
-//        sapoPeakDirectionLegend.addTo(this);
     }
 });
 
 map.on('overlayremove', function(eventLayer) {
-    if (eventLayer.name == 'Icoast - water level') {
+    if (eventLayer.name == 'Icoast - water levels') {
         map.removeControl(sapoLegend);
-    } else if (eventLayer.name == 'Icoast - Significant Wave Height') {
+    } else if (eventLayer.name == 'Icoast - wave height') {
         map.removeControl(sapoMeanDirectionLegend);
-//    } else if (eventLayer.name == 'SAPO - direction of the peak') {
-//        map.removeControl(sapoPeakDirectionLegend);
     }
 });
 
@@ -130,5 +114,4 @@ var baseLayers = getCommonBaseLayers(map); // see baselayers.js
 L.control.layers(baseLayers, overlayMaps).addTo(map);
 
 sapoHeightTimeLayer.addTo(map);
-//sapoPeakDirectionTimeLayer.addTo(map);
-//sapoMeanDirectionTimeLayer.addTo(map);
+sapoPeakDirectionTimeLayer.addTo(map);
