@@ -19,7 +19,7 @@ var map = L.map('map', {
     },
     timeDimension: true,
     timeDimensionOptions: {
-        timeInterval: "2021-01-15/2021-01-16",
+        timeInterval: "2021-01-13/2021-01-16:06:00Z",
         period: "PT1H",
         currentTime: Date.parse("2021-01-15T06:00:00Z")
         //currentTime: Date.parse(dateTime)
@@ -28,7 +28,7 @@ var map = L.map('map', {
 });
 
 //var sapoWMS = "https://icoast.rc.ufl.edu/thredds/wms/roms_his_agg/AGG_ROMS_HIS.nc";
-var sapoWMS = "https://icoast.rc.ufl.edu/thredds/wms/ROMS_HIS202101/forecast_his_2021011506.nc";
+var sapoWMS = "https://icoast.rc.ufl.edu/thredds/wms/roms_his_agg/AGG_ROMS_HIS.nc";
 
 var sapoHeightLayer = L.tileLayer.wms(sapoWMS, {
     layers: 'zeta',
