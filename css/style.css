@@ -32,16 +32,16 @@ html *{
     text-decoration: none;
 }
 
-//#footer a.leaflet-timedimension{
-//    background-image: url(../img/logo-leaflettimedimension-32.png);
-//    background-position: top left;
-//   background-repeat: no-repeat; 
-//    display: block;
-//    float: left;
-//    padding-left: 55px;
-//    min-height: 32px;
-//    line-height: 32px;    
-//}
+#footer a.leaflet-timedimension{
+    background-image: url(../img/COE_ESSIE_small.png);
+    background-position: top left;
+    background-repeat: no-repeat; 
+    display: block;
+    float: left;
+    padding-left: 55px;
+    min-height: 32px;
+    line-height: 32px;    
+}
 
 #footer a.github {
     padding-right: 40px;
