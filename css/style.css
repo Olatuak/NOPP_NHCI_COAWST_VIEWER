@@ -7,18 +7,6 @@ html *{
     margin-left: auto;
     max-width: 970px;
 }
-#header{
-    background-image: url(../img/COE_ESSIE_small.png);
-    background-position: top right;
-    background-repeat: no-repeat;
-    padding-bottom: 20px;
-    min-height: 50px;
-}
-
-#header a{
-    text-decoration: none;
-    color: #80bf43;
-}
 
 #footer {
     clear: both;
