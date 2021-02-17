@@ -7,6 +7,18 @@ html *{
     margin-left: auto;
     max-width: 970px;
 }
+#header{
+    background-image: url(../img/COE_ESSIE_small.png);
+    background-position: top right;
+    background-repeat: no-repeat;
+    padding-bottom: 49px;
+    min-height: 114px;
+}
+
+#header a{
+    text-decoration: none;
+    color: #80bf43;
+}
 
 #footer {
     clear: both;
@@ -21,14 +33,14 @@ html *{
 }
 
 #footer a.leaflet-timedimension{
-    background-image: url(../img/COE_ESSIE_small.png);
+    background-image: url(../img/logo-leaflettimedimension-32.png);
     background-position: top left;
     background-repeat: no-repeat; 
     display: block;
     float: left;
-    padding-left: 22px;
-    min-height: 16px;
-    line-height: 16px;    
+    padding-left: 55px;
+    min-height: 32px;
+    line-height: 32px;    
 }
 
 #footer a.github {
