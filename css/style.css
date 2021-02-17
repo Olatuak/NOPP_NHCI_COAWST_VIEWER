@@ -11,8 +11,8 @@ html *{
     background-image: url(../img/COE_ESSIE.png);
     background-position: top right;
     background-repeat: no-repeat;
-    padding-bottom: 49px;
-    min-height: 114px;
+    padding-bottom: 20px;
+    min-height: 50px;
 }
 
 #header a{
@@ -38,9 +38,9 @@ html *{
     background-repeat: no-repeat; 
     display: block;
     float: left;
-    padding-left: 55px;
-    min-height: 32px;
-    line-height: 32px;    
+    padding-left: 22px;
+    min-height: 16px;
+    line-height: 16px;    
 }
 
 #footer a.github {
