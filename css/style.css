@@ -8,7 +8,7 @@ html *{
     max-width: 970px;
 }
 #header{
-    background-image: url(../img/COE_ESSIE.png);
+    background-image: url(../img/COE_ESSIE_small.png);
     background-position: top right;
     background-repeat: no-repeat;
     padding-bottom: 20px;
