@@ -29,6 +29,8 @@ var map = L.map('map', {
 
 //var sapoWMS = "https://icoast.rc.ufl.edu/thredds/wms/roms_his_agg/AGG_ROMS_HIS.nc";
 var sapoWMS = "https://icoast.rc.ufl.edu/thredds/wms/coawst/gtm/forecast/GTM_FORECAST_best.ncd";
+http://icoast.rc.ufl.edu/thredds/dodsC/coawst/gtm/forecast/GTM_FORECAST_best.ncd
+
 
 var sapoHeightLayer = L.tileLayer.wms(sapoWMS, {
     layers: 'zeta',
