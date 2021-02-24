@@ -1,11 +1,11 @@
 var startDate = new Date();
 startDate.setUTCHours(0, 0, 0, 0);
 
-var today = new Date();
-var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-var dateTime = date+'T'+time+'Z';
-var date_end = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+(today.getDate()+2);
+//var today = new Date();
+//var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+//var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+//var dateTime = date+'T'+time+'Z';
+//var date_end = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+(today.getDate()+2);
 //var time_int = '2021-02-23:06:00Z/'+date+':06:00Z';
 
 var map = L.map('map', {
