@@ -1,5 +1,5 @@
-var startDate = new Date();
-startDate.setUTCHours(0, 0, 0, 0);
+//var startDate = new Date();
+//startDate.setUTCHours(0, 0, 0, 0);
 
 //var today = new Date();
 //var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
