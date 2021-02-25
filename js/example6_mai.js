@@ -6,7 +6,6 @@ startDate.setUTCHours(0, 0, 0, 0);
 //var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 //var dateTime = date+'T'+time+'Z';
 //var date_end = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+(today.getDate()+2);
-//var time_int = '2021-02-23/'+date+':06:00Z';
 
 var map = L.map('map', {
     zoom: 10,
@@ -20,17 +19,16 @@ var map = L.map('map', {
     },
     timeDimension: true,
     timeDimensionOptions: {
-        timeInterval: "2021-02-23/2021-02-25:06:00Z",
-        timeInterval: time_int,
+        timeInterval: "2021-01-13/2021-01-16:06:00Z",
         period: "PT1H",
-        currentTime: Date.parse("2021-02-24T06:00:00Z")
-        currentTime: Date.parse(dateTime)
+        currentTime: Date.parse("2021-01-15T06:00:00Z")
+        //currentTime: Date.parse(dateTime)
     },
     center: [29.8, -81.2]
 });
 
 //var sapoWMS = "https://icoast.rc.ufl.edu/thredds/wms/roms_his_agg/AGG_ROMS_HIS.nc";
-var sapoWMS = "https://icoast.rc.ufl.edu/thredds/wms/coawst/gtm/forecast/GTM_FORECAST_best.ncd";
+var sapoWMS = "https://icoast.rc.ufl.edu/thredds/wms/roms_his_agg/AGG_ROMS_HIS.nc";
 
 var sapoHeightLayer = L.tileLayer.wms(sapoWMS, {
     layers: 'zeta',
