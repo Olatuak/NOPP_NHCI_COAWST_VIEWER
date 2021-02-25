@@ -5,7 +5,7 @@ var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 var dateTime = date+'T'+time+'Z';
-var TimeInt = '2021-02-23:06:00Z/'+date+':06:00Z';
+//var TimeInt = '2021-02-23:06:00Z/'+date+':06:00Z';
 
 var map = L.map('map', {
     zoom: 10,
@@ -19,8 +19,8 @@ var map = L.map('map', {
     },
     timeDimension: true,
     timeDimensionOptions: {
-        //timeInterval: "2021-02-23:06:00Z/2021-02-25:06:00Z",
-        timeInterval: TimeInt,
+        timeInterval: "2021-02-23:06:00Z/2021-02-25:06:00Z",
+        //timeInterval: TimeInt,
         period: "PT1H",
         //currentTime: Date.parse("2021-02-24T06:00:00Z")
         currentTime: Date.parse(dateTime)
