@@ -19,7 +19,7 @@ var map = L.map('map', {
     },
     timeDimension: true,
     timeDimensionOptions: {
-        timeInterval: "2021-02-23:06:00Z/2021-02-25:06:00Z",
+        timeInterval: "2021-02-23:06:00Z/2021-04-05:06:00Z",
         //timeInterval: TimeInt,
         period: "PT1H",
         //currentTime: Date.parse("2021-02-24T06:00:00Z")
