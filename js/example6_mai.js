@@ -8,7 +8,8 @@ var dateTime = date+'T'+time+'Z';
 //var TimeInt = '2021-02-23:06:00Z/'+date+':06:00Z';
 
 var map = L.map('map', {
-    zoom: 10,
+    //zoom: 10,
+    zoom: 7,
     fullscreenControl: true,
     timeDimensionControl: true,
     timeDimensionControlOptions: {
@@ -25,7 +26,8 @@ var map = L.map('map', {
         currentTime: Date.parse("2021-02-03T06:00:00Z")
         //currentTime: Date.parse(dateTime)
     },
-    center: [29.8, -81.2]
+    //center: [29.8, -81.2]
+    center: [29.5, -81.5]
 });
 
 //var sapoWMS = "https://icoast.rc.ufl.edu/thredds/wms/roms_his_agg/AGG_ROMS_HIS.nc";
