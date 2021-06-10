@@ -19,17 +19,18 @@ var map = L.map('map', {
     },
     timeDimension: true,
     timeDimensionOptions: {
-        timeInterval: "2021-02-23:06:00Z/2021-04-05:06:00Z",
+        timeInterval: "2021-02-01:06:00Z/2021-02-04:06:00Z",
         //timeInterval: TimeInt,
         period: "PT1H",
-        //currentTime: Date.parse("2021-02-24T06:00:00Z")
-        currentTime: Date.parse(dateTime)
+        currentTime: Date.parse("2021-02-03T06:00:00Z")
+        //currentTime: Date.parse(dateTime)
     },
     center: [29.8, -81.2]
 });
 
 //var sapoWMS = "https://icoast.rc.ufl.edu/thredds/wms/roms_his_agg/AGG_ROMS_HIS.nc";
-var sapoWMS = "https://icoast.rc.ufl.edu/thredds/wms/coawst/gtm/forecast/GTM_FORECAST_best.ncd";
+// var sapoWMS = "https://icoast.rc.ufl.edu/thredds/wms/coawst/gtm/forecast/GTM_FORECAST_best.ncd";
+var sapoWMS= "https://icoast.rc.ufl.edu/thredds/wms/coawst/snb/forecast/SNB_FORECAST_best.ncd";
 
 var sapoHeightLayer = L.tileLayer.wms(sapoWMS, {
     layers: 'zeta',
