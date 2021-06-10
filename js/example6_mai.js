@@ -9,7 +9,7 @@ var dateTime = date+'T'+time+'Z';
 
 var map = L.map('map', {
     //zoom: 10,
-    zoom: 10,
+    zoom: 7,
     fullscreenControl: true,
     timeDimensionControl: true,
     timeDimensionControlOptions: {
