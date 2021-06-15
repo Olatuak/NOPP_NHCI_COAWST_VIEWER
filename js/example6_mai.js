@@ -38,7 +38,7 @@ var sapoHeightLayer = L.tileLayer.wms(sapoWMS, {
     layers: 'zeta',
     format: 'image/png',
     transparent: true,
-    colorscalerange: '-1.5,1.5',
+    colorscalerange: '-0.4,0.4',
     abovemaxcolor: "extend",
     belowmincolor: "extend",
 });
@@ -75,7 +75,7 @@ var sapoLegend = L.control({
 });
 
 sapoLegend.onAdd = function(map) {
-    var src = sapoWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=zeta&colorscalerange=-1.5,1.5&PALETTE=rainbow";
+    var src = sapoWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=zeta&colorscalerange=-0.4,0.4&PALETTE=rainbow";
     var div = L.DomUtil.create('div', 'info legend');
     div.innerHTML +=
         '<img src="' + src + '" alt="legend">';
