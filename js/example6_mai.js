@@ -5,11 +5,19 @@ var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 var dateTime = date+'T'+time+'Z';
-//var TimeInt = '2021-02-23:06:00Z/'+date+':06:00Z';
+
+
+var today5 = new Date();
+var numberOfDaysToAdd = 3;
+today5.setDate(today5.getDate() + numberOfDaysToAdd); 
+var date5 = today5.getFullYear()+'-'+(today5.getMonth()+1)+'-'+today5.getDate();
+var TimeInt = date+'/'+date5;
+
+//var TimeInt = date+':00:00:00Z/'+date5+':00:00:00Z';
 
 var map = L.map('map', {
     //zoom: 10,
-    zoom: 10,
+    zoom: 9,
     fullscreenControl: true,
     timeDimensionControl: true,
     timeDimensionControlOptions: {
@@ -20,11 +28,11 @@ var map = L.map('map', {
     },
     timeDimension: true,
     timeDimensionOptions: {
-        timeInterval: "2021-06-11:00:00Z/2021-06-31:00:00Z",
-        //timeInterval: TimeInt,
+        //timeInterval: "2021-06-11:00:00Z/2021-06-31:00:00Z",
+        timeInterval: TimeInt,
         period: "PT1H",
-        //currentTime: Date.parse("2021-02-03T06:00:00Z")
-        currentTime: Date.parse(dateTime)
+        //currentTime: Date.parse(someDate)
+        currentTime: Date.parse(date)
     },
     //center: [29.8, -81.2]
     center: [26.72, -82.0]
@@ -65,7 +73,7 @@ var sapoSTLayer = L.nonTiledLayer.wms(sapoWMS, {
     layers: 'temp',
     format: 'image/png',
     transparent: true,
-    colorscalerange: '18,28',
+    colorscalerange: '23,30',
     abovemaxcolor: "extend",
     belowmincolor: "extend",
 });
@@ -135,7 +143,7 @@ var sapoSTLegend = L.control({
 });
 
 sapoSTLegend.onAdd = function(map) {
-    var src = sapoWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=temp&colorscalerange=18,28&PALETTE=rainbow";
+    var src = sapoWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=temp&colorscalerange=23,30&PALETTE=rainbow";
     var div = L.DomUtil.create('div', 'info legend');
     div.innerHTML +=
         '<img src="' + src + '" alt="legend">';
