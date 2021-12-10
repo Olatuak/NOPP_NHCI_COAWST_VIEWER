@@ -18,7 +18,7 @@ var TimeInt = date+'/'+date5;
 
 var map = L.map('map', {
     //zoom: 10,
-    zoom: 9.5,
+    zoom: 9.25,
     fullscreenControl: true,
     timeDimensionControl: true,
     timeDimensionControlOptions: {
