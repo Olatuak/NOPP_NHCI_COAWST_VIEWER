@@ -7,18 +7,6 @@ html *{
     margin-left: auto;
     max-width: 970px;
 }
-#header{
-    background-image: url(../img/Logo_blue.png);
-    background-position: top right;
-    background-repeat: no-repeat;
-    padding-bottom: 49px;
-    min-height: 114px;
-}
-
-#header a{
-    text-decoration: none;
-    color: #80bf43;
-}
 
 #footer {
     clear: both;
