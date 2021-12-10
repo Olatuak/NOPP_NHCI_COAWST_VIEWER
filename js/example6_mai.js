@@ -111,7 +111,7 @@ sapoLegend.onAdd = function(map) {
     var src = sapoWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=zeta&colorscalerange=-0.4,0.4&PALETTE=rainbow";
     var div = L.DomUtil.create('div', 'info legend');
     div.innerHTML +=
-        '<img src="' + src + '" alt="legend" width="55" height="75">';
+        '<img src="' + src + '" alt="legend" width="55" height="105">';
     return div;
 };
 
@@ -123,7 +123,7 @@ sapoWHLegend.onAdd = function(map) {
     var src = sapoWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=Hwave&colorscalerange=0,3&PALETTE=rainbow";
     var div = L.DomUtil.create('div', 'info legend');
     div.innerHTML +=
-        '<img src="' + src + '" alt="legend" width="55" height="75">';
+        '<img src="' + src + '" alt="legend" width="55" height="105">';
     return div;
 };
 
@@ -135,7 +135,7 @@ sapoSSLegend.onAdd = function(map) {
     var src = sapoWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=salt&colorscalerange=0,35&PALETTE=rainbow";
     var div = L.DomUtil.create('div', 'info legend');
     div.innerHTML +=
-        '<img src="' + src + '" alt="legend" width="55" height="75">';
+        '<img src="' + src + '" alt="legend" width="55" height="105">';
     return div;
 };
 
@@ -147,7 +147,7 @@ sapoSTLegend.onAdd = function(map) {
     var src = sapoWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=temp&colorscalerange=23,30&PALETTE=rainbow";
     var div = L.DomUtil.create('div', 'info legend');
     div.innerHTML +=
-        '<img src="' + src + '" alt="legend" width="55" height="75">';
+        '<img src="' + src + '" alt="legend" width="55" height="105">';
     return div;
 };
 
