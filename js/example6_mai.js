@@ -2,7 +2,7 @@ var startDate = new Date();
 startDate.setUTCHours(0, 0, 0, 0);
 
 var today = new Date();
-today.setDate(today.getDate()); 
+//today.setDate(today.getDate()); 
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 var dateTime = date+'T'+time+'Z';
@@ -18,7 +18,7 @@ var TimeInt = date+'/'+date5;
 
 var map = L.map('map', {
     //zoom: 10,
-    zoom: 9,
+    zoom: 9.5,
     fullscreenControl: true,
     timeDimensionControl: true,
     timeDimensionControlOptions: {
