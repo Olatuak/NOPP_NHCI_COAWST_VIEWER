@@ -108,7 +108,7 @@ var sapoLegend = L.control({
 });
 
 sapoLegend.onAdd = function(map) {
-    var src = sapoWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=zeta&colorscalerange=-0.4,0.4&PALETTE=rainbow";
+    var src = sapoWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&FORMAT=image/png&WIDTH=20&HEIGHT=40&LAYER=zeta&colorscalerange=-0.4,0.4&PALETTE=rainbow";
     var div = L.DomUtil.create('div', 'info legend');
     div.innerHTML +=
         '<img src="' + src + '" alt="legend" width="75" height="55">';
