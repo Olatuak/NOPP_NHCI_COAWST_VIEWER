@@ -2,7 +2,6 @@ var startDate = new Date();
 startDate.setUTCHours(0, 0, 0, 0);
 
 var today = new Date();
-today.setDate(today.getDate() - 1);
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 var dateTime = date+'T'+time+'Z';
