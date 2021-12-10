@@ -12,7 +12,7 @@ html *{
     background-position: top right;
     background-repeat: no-repeat;
     padding-bottom: 49px;
-    min-height: 114px;
+    min-height: 80px;
 }
 
 #header a{
