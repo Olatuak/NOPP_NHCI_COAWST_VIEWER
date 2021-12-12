@@ -18,7 +18,7 @@ var TimeInt = date+'/'+date5;
 
 var map = L.map('map', {
     //zoom: 10,
-    zoom: 9.35,
+    zoom: 9.5,
     fullscreenControl: true,
     timeDimensionControl: true,
     timeDimensionControlOptions: {
@@ -36,7 +36,7 @@ var map = L.map('map', {
         currentTime: Date.parse(date)
     },
     //center: [29.8, -81.2]
-    center: [26.72, -82.0]
+    center: [26.73, -81.95]
 });
 
 //var sapoWMS = "https://icoast.rc.ufl.edu/thredds/wms/roms_his_agg/AGG_ROMS_HIS.nc";
