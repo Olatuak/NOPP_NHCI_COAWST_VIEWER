@@ -56,7 +56,7 @@ var sapoWHLayer = L.nonTiledLayer.wms(sapoWMS, {
     layers: 'Hwave',
     format: 'image/png',
     transparent: true,
-    colorscalerange: '0,3',
+    colorscalerange: '0,1.5',
     abovemaxcolor: "extend",
     belowmincolor: "extend",
 });
@@ -120,7 +120,7 @@ var sapoWHLegend = L.control({
 });
 
 sapoWHLegend.onAdd = function(map) {
-    var src = sapoWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=Hwave&colorscalerange=0,3&PALETTE=rainbow";
+    var src = sapoWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=Hwave&colorscalerange=0,1.5&PALETTE=rainbow";
     var div = L.DomUtil.create('div', 'info legend');
     div.innerHTML +=
         '<img src="' + src + '" alt="legend">';
