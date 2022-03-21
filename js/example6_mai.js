@@ -191,6 +191,7 @@ sapoWHTimeLayer.addTo(map);
 sapoSSTimeLayer.addTo(map);
 */
 
-sapoSSTimeLayer.addTo(map);
+/*sapoSSTimeLayer.addTo(map);*/
+sapoWLTimeLayer.addTo(map);
 
 
