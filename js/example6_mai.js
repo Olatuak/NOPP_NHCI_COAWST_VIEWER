@@ -33,7 +33,7 @@ var map = L.map('map', {
     center: [26.73, -75.975]
 });
 
-var sapoWMS= "http://icoast.rc.ufl.edu/thredds/wms/coawst_L0/L0_qck_20220809.nc"
+var sapoWMS= "http://geoport.whoi.edu/thredds/wms/vortexfs1/usgs/Projects/NOPP_forecast/NYBight/nyb_his_00005.nc"
 
 
 var sapoWLLayer = L.tileLayer.wms(sapoWMS, {
