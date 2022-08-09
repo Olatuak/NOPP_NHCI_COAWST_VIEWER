@@ -108,7 +108,7 @@ var sapoLegend = L.control({
 });
 
 sapoLegend.onAdd = function(map) {
-    var src = sapoWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=zeta&colorscalerange=-0.4,0.4&PALETTE=rainbow";
+    var src = sapoWMS + "?REQUEST=GetLegendGraphic&LAYER=zeta&PALETTE=rainbow";
     var div = L.DomUtil.create('div', 'info legend');
     div.innerHTML +=
         '<img src="' + src + '" alt="legend">';
