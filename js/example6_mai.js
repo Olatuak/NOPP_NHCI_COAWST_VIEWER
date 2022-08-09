@@ -154,7 +154,7 @@ sapoSTLegend.onAdd = function(map) {
 };
 */
 var overlayMaps = {
-    "Icoast - water levels": sapoWLTimeLayer
+    "Coawst - water levels": sapoWLTimeLayer
 //    "Icoast - wave height": sapoWHTimeLayer,
 //    "Icoast - surface salinity": sapoSSTimeLayer,
 //    "Icoast - surface temperature": sapoSTTimeLayer
