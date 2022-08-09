@@ -49,7 +49,7 @@ var sapoWLLayer = L.tileLayer.wms(sapoWMS, {
     belowmincolor: "extend",
 });
 
-
+/*
 var sapoWHLayer = L.nonTiledLayer.wms(sapoWMS, {
     layers: 'Hwave',
     format: 'image/png',
@@ -58,8 +58,6 @@ var sapoWHLayer = L.nonTiledLayer.wms(sapoWMS, {
     abovemaxcolor: "extend",
     belowmincolor: "extend",
 });
-
-/*
 var sapoSSLayer = L.nonTiledLayer.wms(sapoWMS, {
     layers: 'salt',
     format: 'image/png',
@@ -68,7 +66,6 @@ var sapoSSLayer = L.nonTiledLayer.wms(sapoWMS, {
     abovemaxcolor: "extend",
     belowmincolor: "extend",
 });
-
 var sapoSTLayer = L.nonTiledLayer.wms(sapoWMS, {
     layers: 'temp',
     format: 'image/png',
@@ -89,11 +86,9 @@ var sapoWLTimeLayer = L.timeDimension.layer.wms(sapoWLLayer, {
 var sapoWHTimeLayer = L.timeDimension.layer.wms(sapoWHLayer, {
     proxy: proxy
 });
-
 var sapoSSTimeLayer = L.timeDimension.layer.wms(sapoSSLayer, {
     proxy: proxy
 });
-
 var sapoSTTimeLayer = L.timeDimension.layer.wms(sapoSTLayer, {
     proxy: proxy
 });
@@ -117,11 +112,10 @@ sapoLegend.onAdd = function(map) {
     return div;
 };
 
-
+/*
 var sapoWHLegend = L.control({
     position: 'bottomleft'
 });
-
 sapoWHLegend.onAdd = function(map) {
     var src = sapoWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=Hwave&colorscalerange=0,5.5&PALETTE=rainbow";
     var div = L.DomUtil.create('div', 'info legend');
@@ -129,12 +123,9 @@ sapoWHLegend.onAdd = function(map) {
         '<img src="' + src + '" alt="legend">';
     return div;
 };
-
-/*
 var sapoSSLegend = L.control({
     position: 'bottomleft'
 });
-
 sapoSSLegend.onAdd = function(map) {
     var src = sapoWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=salt&colorscalerange=0,35&PALETTE=rainbow";
     var div = L.DomUtil.create('div', 'info legend');
@@ -142,11 +133,9 @@ sapoSSLegend.onAdd = function(map) {
         '<img src="' + src + '" alt="legend">';
     return div;
 };
-
 var sapoSTLegend = L.control({
     position: 'bottomright'
 });
-
 sapoSTLegend.onAdd = function(map) {
     var src = sapoWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=temp&colorscalerange=23,30&PALETTE=rainbow";
     var div = L.DomUtil.create('div', 'info legend');
@@ -155,19 +144,18 @@ sapoSTLegend.onAdd = function(map) {
     return div;
 };
 */
-
 var overlayMaps = {
-    "Coawst - water levels": sapoWLTimeLayer,
-    "Coawst - wave height": sapoWHTimeLayer
+    "Coawst - water levels": sapoWLTimeLayer
+//    "Icoast - wave height": sapoWHTimeLayer,
 //    "Icoast - surface salinity": sapoSSTimeLayer,
 //    "Icoast - surface temperature": sapoSTTimeLayer
 };
 
 map.on('overlayadd', function(eventLayer) {
-    if (eventLayer.name == 'Coawst - water levels') {
+    if (eventLayer.name == 'Icoast - water levels') {
         sapoLegend.addTo(this);
-    } else if (eventLayer.name == 'Coawst - wave height') {
-        sapoWHLegend.addTo(this);
+//    } else if (eventLayer.name == 'Icoast - wave height') {
+//        sapoWHLegend.addTo(this);
 //    } else if (eventLayer.name == 'Icoast - surface salinity') {
 //        sapoSSLegend.addTo(this);
 //    } else if (eventLayer.name == 'Icoast - surface temperature') {
@@ -178,11 +166,11 @@ map.on('overlayadd', function(eventLayer) {
 map.on('overlayremove', function(eventLayer) {
     if (eventLayer.name == 'Coawst - water levels') {
         map.removeControl(sapoLegend);
-    } else if (eventLayer.name == 'Icoast - wave height') {
-        map.removeControl(sapoWHLegend);
-//	} else if (eventLayer.name == 'Icoast - surface salinity') {
+//    } else if (eventLayer.name == 'Icoast - wave height') {
+//        map.removeControl(sapoWHLegend);
+//	} else if (eventLayer.name == 'Coawst - surface salinity') {
 //        map.removeControl(sapoSSLegend);
-//	} else if (eventLayer.name == 'Icoast - surface temperature') {
+//	} else if (eventLayer.name == 'Coawst - surface temperature') {
 //        map.removeControl(sapoSTLegend);
     }
 });
@@ -190,4 +178,11 @@ map.on('overlayremove', function(eventLayer) {
 var baseLayers = getCommonBaseLayers(map); // see baselayers.js
 L.control.layers(baseLayers, overlayMaps).addTo(map);
 
+/*
+sapoWLTimeLayer.addTo(map);
+sapoWHTimeLayer.addTo(map);
+sapoSSTimeLayer.addTo(map);
+*/
+
+/*sapoSSTimeLayer.addTo(map);*/
 sapoWLTimeLayer.addTo(map);
