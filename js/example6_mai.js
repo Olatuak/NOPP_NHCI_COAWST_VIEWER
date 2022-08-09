@@ -7,14 +7,18 @@ var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 var dateTime = date+'T'+time+'Z';
 
+
 var today5 = new Date();
-var numberOfDaysToAdd = 5;
+var numberOfDaysToAdd = 3;
 today5.setDate(today5.getDate() + numberOfDaysToAdd); 
 var date5 = today5.getFullYear()+'-'+(today5.getMonth()+1)+'-'+today5.getDate();
 var TimeInt = date+'/'+date5;
 
+//var TimeInt = date+':00:00:00Z/'+date5+':00:00:00Z';
+
 var map = L.map('map', {
-    zoom: 5.4,
+    //zoom: 10,
+    zoom: 9.4,
     fullscreenControl: true,
     timeDimensionControl: true,
     timeDimensionControlOptions: {
@@ -25,16 +29,19 @@ var map = L.map('map', {
     },
     timeDimension: true,
     timeDimensionOptions: {
+        //timeInterval: "2021-06-11:00:00Z/2021-06-31:00:00Z",
         timeInterval: TimeInt,
         period: "PT1H",
         //currentTime: Date.parse(someDate)
         currentTime: Date.parse(date)
     },
-    center: [26.73, -75.975]
+    //center: [29.8, -81.2]
+    center: [26.73, -81.975]
 });
 
-var sapoWMS= "http://geoport.whoi.edu/thredds/wms/vortexfs1/usgs/Projects/NOPP_forecast/NYBight/nyb_his_00005.nc"
-
+//var sapoWMS = "https://icoast.rc.ufl.edu/thredds/wms/roms_his_agg/AGG_ROMS_HIS.nc";
+// var sapoWMS = "https://icoast.rc.ufl.edu/thredds/wms/coawst/gtm/forecast/GTM_FORECAST_best.ncd";
+var sapoWMS= "https://icoast.rc.ufl.edu/thredds/wms/coawst/snb/forecast/SNB_FORECAST_best.ncd";
 
 var sapoWLLayer = L.tileLayer.wms(sapoWMS, {
     layers: 'zeta',
@@ -45,7 +52,6 @@ var sapoWLLayer = L.tileLayer.wms(sapoWMS, {
     belowmincolor: "extend",
 });
 
-/*
 var sapoWHLayer = L.nonTiledLayer.wms(sapoWMS, {
     layers: 'Hwave',
     format: 'image/png',
@@ -54,7 +60,6 @@ var sapoWHLayer = L.nonTiledLayer.wms(sapoWMS, {
     abovemaxcolor: "extend",
     belowmincolor: "extend",
 });
-*/
 
 var sapoSSLayer = L.nonTiledLayer.wms(sapoWMS, {
     layers: 'salt',
@@ -80,11 +85,10 @@ var sapoWLTimeLayer = L.timeDimension.layer.wms(sapoWLLayer, {
     updateTimeDimension: false
 });
 
-/*
 var sapoWHTimeLayer = L.timeDimension.layer.wms(sapoWHLayer, {
     proxy: proxy
 });
-*/
+
 var sapoSSTimeLayer = L.timeDimension.layer.wms(sapoSSLayer, {
     proxy: proxy
 });
@@ -111,7 +115,6 @@ sapoLegend.onAdd = function(map) {
     return div;
 };
 
-/*
 var sapoWHLegend = L.control({
     position: 'bottomleft'
 });
@@ -123,7 +126,6 @@ sapoWHLegend.onAdd = function(map) {
         '<img src="' + src + '" alt="legend">';
     return div;
 };
-*/
 
 var sapoSSLegend = L.control({
     position: 'bottomleft'
@@ -151,7 +153,7 @@ sapoSTLegend.onAdd = function(map) {
 
 var overlayMaps = {
     "Icoast - water levels": sapoWLTimeLayer,
-//    "Icoast - wave height": sapoWHTimeLayer,
+    "Icoast - wave height": sapoWHTimeLayer,
     "Icoast - surface salinity": sapoSSTimeLayer,
     "Icoast - surface temperature": sapoSTTimeLayer
 };
@@ -159,8 +161,8 @@ var overlayMaps = {
 map.on('overlayadd', function(eventLayer) {
     if (eventLayer.name == 'Icoast - water levels') {
         sapoLegend.addTo(this);
-//    } else if (eventLayer.name == 'Icoast - wave height') {
-//        sapoWHLegend.addTo(this);
+    } else if (eventLayer.name == 'Icoast - wave height') {
+        sapoWHLegend.addTo(this);
     } else if (eventLayer.name == 'Icoast - surface salinity') {
         sapoSSLegend.addTo(this);
     } else if (eventLayer.name == 'Icoast - surface temperature') {
@@ -171,8 +173,8 @@ map.on('overlayadd', function(eventLayer) {
 map.on('overlayremove', function(eventLayer) {
     if (eventLayer.name == 'Icoast - water levels') {
         map.removeControl(sapoLegend);
-//    } else if (eventLayer.name == 'Icoast - wave height') {
-//        map.removeControl(sapoWHLegend);
+    } else if (eventLayer.name == 'Icoast - wave height') {
+        map.removeControl(sapoWHLegend);
 	} else if (eventLayer.name == 'Icoast - surface salinity') {
         map.removeControl(sapoSSLegend);
 	} else if (eventLayer.name == 'Icoast - surface temperature') {
