@@ -152,7 +152,7 @@ var overlayMaps = {
 };
 
 map.on('overlayadd', function(eventLayer) {
-    if (eventLayer.name == 'Icoast - water levels') {
+    if (eventLayer.name == 'Coawst - water levels') {
         sapoLegend.addTo(this);
 //    } else if (eventLayer.name == 'Icoast - wave height') {
 //        sapoWHLegend.addTo(this);
