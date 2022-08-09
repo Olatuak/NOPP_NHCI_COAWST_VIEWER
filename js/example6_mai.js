@@ -41,7 +41,7 @@ var map = L.map('map', {
 
 //var sapoWMS = "https://icoast.rc.ufl.edu/thredds/wms/roms_his_agg/AGG_ROMS_HIS.nc";
 // var sapoWMS = "https://icoast.rc.ufl.edu/thredds/wms/coawst/gtm/forecast/GTM_FORECAST_best.ncd";
-var sapoWMS= "https://icoast.rc.ufl.edu/thredds/wms/coawst/snb/forecast/SNB_FORECAST_best.ncd";
+var sapoWMS= "http://geoport.whoi.edu/thredds/wms/vortexfs1/usgs/Projects/NOPP_forecast/NYBight/nyb_his_00005.nc";
 
 var sapoWLLayer = L.tileLayer.wms(sapoWMS, {
     layers: 'zeta',
