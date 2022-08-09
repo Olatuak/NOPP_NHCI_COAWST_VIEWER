@@ -161,8 +161,8 @@ var overlayMaps = {
 };
 
 map.on('overlayadd', function(eventLayer) {
-    if (eventLayer.name == 'Icoast - water levels') {
-        sapoLegend.addTo(this);
+    if (eventLayer.name == 'Coawst - water levels') {
+        sapoLegend.addTo(this)
 //    } else if (eventLayer.name == 'Icoast - wave height') {
 //        sapoWHLegend.addTo(this);
 //    } else if (eventLayer.name == 'Icoast - surface salinity') {
@@ -173,8 +173,8 @@ map.on('overlayadd', function(eventLayer) {
 });
 
 map.on('overlayremove', function(eventLayer) {
-    if (eventLayer.name == 'Icoast - water levels') {
-        map.removeControl(sapoLegend);
+    if (eventLayer.name == 'Coawst - water levels') {
+        map.removeControl(sapoLegend)
 //    } else if (eventLayer.name == 'Icoast - wave height') {
 //        map.removeControl(sapoWHLegend);
 //	} else if (eventLayer.name == 'Icoast - surface salinity') {
@@ -187,11 +187,4 @@ map.on('overlayremove', function(eventLayer) {
 var baseLayers = getCommonBaseLayers(map); // see baselayers.js
 L.control.layers(baseLayers, overlayMaps).addTo(map);
 
-/*
-sapoWLTimeLayer.addTo(map);
-sapoWHTimeLayer.addTo(map);
-sapoSSTimeLayer.addTo(map);
-*/
-
-/*sapoSSTimeLayer.addTo(map);*/
 sapoWLTimeLayer.addTo(map);
