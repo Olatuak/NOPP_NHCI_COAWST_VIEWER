@@ -38,9 +38,6 @@ var map = L.map('map', {
     center: [35.00, -75.975]
 });
 
-//var sapoWMS = "https://icoast.rc.ufl.edu/thredds/wms/roms_his_agg/AGG_ROMS_HIS.nc";
-// var sapoWMS = "https://icoast.rc.ufl.edu/thredds/wms/coawst/gtm/forecast/GTM_FORECAST_best.ncd";
-//var sapoWMS = "http://geoport.whoi.edu/thredds/wms/vortexfs1/usgs/Projects/NOPP_forecast/NYBight/nyb_his_00005.nc";
 var sapoWMS = "http://icoast.rc.ufl.edu/thredds/wms/coawst/L0/forecast_qck/NHCI_L0_QCK_best.ncd"
 
 var sapoWLLayer = L.tileLayer.wms(sapoWMS, {
@@ -52,6 +49,7 @@ var sapoWLLayer = L.tileLayer.wms(sapoWMS, {
     belowmincolor: "extend",
 });
 
+/*
 var sapoWHLayer = L.nonTiledLayer.wms(sapoWMS, {
     layers: 'Hwave',
     format: 'image/png',
@@ -78,6 +76,7 @@ var sapoSTLayer = L.nonTiledLayer.wms(sapoWMS, {
     abovemaxcolor: "extend",
     belowmincolor: "extend",
 });
+*/
 
 var proxy = 'server/proxy.php';
 var sapoWLTimeLayer = L.timeDimension.layer.wms(sapoWLLayer, {
@@ -85,6 +84,7 @@ var sapoWLTimeLayer = L.timeDimension.layer.wms(sapoWLLayer, {
     updateTimeDimension: false
 });
 
+/*
 var sapoWHTimeLayer = L.timeDimension.layer.wms(sapoWHLayer, {
     proxy: proxy
 });
@@ -96,6 +96,7 @@ var sapoSSTimeLayer = L.timeDimension.layer.wms(sapoSSLayer, {
 var sapoSTTimeLayer = L.timeDimension.layer.wms(sapoSTLayer, {
     proxy: proxy
 });
+*/
 
 /*
 var sapoPeakDirectionTimeLayer = L.timeDimension.layer.wms(sapoPeakDirectionLayer, {
@@ -115,6 +116,7 @@ sapoLegend.onAdd = function(map) {
     return div;
 };
 
+/*
 var sapoWHLegend = L.control({
     position: 'bottomleft'
 });
@@ -150,35 +152,35 @@ sapoSTLegend.onAdd = function(map) {
         '<img src="' + src + '" alt="legend">';
     return div;
 };
-
+*/
 var overlayMaps = {
-    "Icoast - water levels": sapoWLTimeLayer,
-    "Icoast - wave height": sapoWHTimeLayer,
-    "Icoast - surface salinity": sapoSSTimeLayer,
-    "Icoast - surface temperature": sapoSTTimeLayer
+    "Icoast - water levels": sapoWLTimeLayer
+//    "Icoast - wave height": sapoWHTimeLayer,
+//    "Icoast - surface salinity": sapoSSTimeLayer,
+//    "Icoast - surface temperature": sapoSTTimeLayer
 };
 
 map.on('overlayadd', function(eventLayer) {
     if (eventLayer.name == 'Icoast - water levels') {
         sapoLegend.addTo(this);
-    } else if (eventLayer.name == 'Icoast - wave height') {
-        sapoWHLegend.addTo(this);
-    } else if (eventLayer.name == 'Icoast - surface salinity') {
-        sapoSSLegend.addTo(this);
-    } else if (eventLayer.name == 'Icoast - surface temperature') {
-        sapoSTLegend.addTo(this);
+//    } else if (eventLayer.name == 'Icoast - wave height') {
+//        sapoWHLegend.addTo(this);
+//    } else if (eventLayer.name == 'Icoast - surface salinity') {
+//        sapoSSLegend.addTo(this);
+//    } else if (eventLayer.name == 'Icoast - surface temperature') {
+//        sapoSTLegend.addTo(this);
     }
 });
 
 map.on('overlayremove', function(eventLayer) {
     if (eventLayer.name == 'Icoast - water levels') {
         map.removeControl(sapoLegend);
-    } else if (eventLayer.name == 'Icoast - wave height') {
-        map.removeControl(sapoWHLegend);
-	} else if (eventLayer.name == 'Icoast - surface salinity') {
-        map.removeControl(sapoSSLegend);
-	} else if (eventLayer.name == 'Icoast - surface temperature') {
-        map.removeControl(sapoSTLegend);
+//    } else if (eventLayer.name == 'Icoast - wave height') {
+//        map.removeControl(sapoWHLegend);
+//	} else if (eventLayer.name == 'Icoast - surface salinity') {
+//        map.removeControl(sapoSSLegend);
+//	} else if (eventLayer.name == 'Icoast - surface temperature') {
+//        map.removeControl(sapoSTLegend);
     }
 });
 
