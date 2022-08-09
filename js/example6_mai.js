@@ -36,7 +36,7 @@ var map = L.map('map', {
         currentTime: Date.parse(date)
     },
     //center: [29.8, -81.2]
-    center: [30.00, -75.975]
+    center: [35.00, -75.975]
 });
 
 //var sapoWMS = "https://icoast.rc.ufl.edu/thredds/wms/roms_his_agg/AGG_ROMS_HIS.nc";
@@ -47,7 +47,7 @@ var sapoWLLayer = L.tileLayer.wms(sapoWMS, {
     layers: 'zeta',
     format: 'image/png',
     transparent: true,
-    colorscalerange: '-0.4,0.4',
+    colorscalerange: '-1.5,1.5',
     abovemaxcolor: "extend",
     belowmincolor: "extend",
 });
@@ -56,7 +56,7 @@ var sapoWHLayer = L.nonTiledLayer.wms(sapoWMS, {
     layers: 'Hwave',
     format: 'image/png',
     transparent: true,
-    colorscalerange: '0,1.5',
+    colorscalerange: '0,5.5',
     abovemaxcolor: "extend",
     belowmincolor: "extend",
 });
@@ -108,7 +108,7 @@ var sapoLegend = L.control({
 });
 
 sapoLegend.onAdd = function(map) {
-    var src = sapoWMS + "?REQUEST=GetLegendGraphic&LAYER=zeta&PALETTE=rainbow";
+    var src = sapoWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=zeta&colorscalerange=-1.5,1.5&PALETTE=rainbow";
     var div = L.DomUtil.create('div', 'info legend');
     div.innerHTML +=
         '<img src="' + src + '" alt="legend">';
@@ -120,7 +120,7 @@ var sapoWHLegend = L.control({
 });
 
 sapoWHLegend.onAdd = function(map) {
-    var src = sapoWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=Hwave&colorscalerange=0,1.5&PALETTE=rainbow";
+    var src = sapoWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=Hwave&colorscalerange=0,5.5&PALETTE=rainbow";
     var div = L.DomUtil.create('div', 'info legend');
     div.innerHTML +=
         '<img src="' + src + '" alt="legend">';
