@@ -41,22 +41,13 @@ var map = L.map('map', {
 
 //var sapoWMS = "https://icoast.rc.ufl.edu/thredds/wms/roms_his_agg/AGG_ROMS_HIS.nc";
 // var sapoWMS = "https://icoast.rc.ufl.edu/thredds/wms/coawst/gtm/forecast/GTM_FORECAST_best.ncd";
-var sapoWMS= "https://icoast.rc.ufl.edu/wms/coawst_L0/L0_his_20220809.nc";
+var sapoWMS= "http://icoast.rc.ufl.edu/thredds/wms/coawst_L0/L0_his_20220809.nc";
 
 var sapoWLLayer = L.tileLayer.wms(sapoWMS, {
     layers: 'zeta',
     format: 'image/png',
     transparent: true,
     colorscalerange: '-0.4,0.4',
-    abovemaxcolor: "extend",
-    belowmincolor: "extend",
-});
-
-var sapoWHLayer = L.nonTiledLayer.wms(sapoWMS, {
-    layers: 'Hwave',
-    format: 'image/png',
-    transparent: true,
-    colorscalerange: '0,1.5',
     abovemaxcolor: "extend",
     belowmincolor: "extend",
 });
@@ -115,18 +106,6 @@ sapoLegend.onAdd = function(map) {
     return div;
 };
 
-var sapoWHLegend = L.control({
-    position: 'bottomleft'
-});
-
-sapoWHLegend.onAdd = function(map) {
-    var src = sapoWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=Hwave&colorscalerange=0,1.5&PALETTE=rainbow";
-    var div = L.DomUtil.create('div', 'info legend');
-    div.innerHTML +=
-        '<img src="' + src + '" alt="legend">';
-    return div;
-};
-
 var sapoSSLegend = L.control({
     position: 'bottomleft'
 });
@@ -152,32 +131,27 @@ sapoSTLegend.onAdd = function(map) {
 };
 
 var overlayMaps = {
-    "Icoast - water levels": sapoWLTimeLayer,
-    "Icoast - wave height": sapoWHTimeLayer,
-    "Icoast - surface salinity": sapoSSTimeLayer,
-    "Icoast - surface temperature": sapoSTTimeLayer
+    "Coawst - water levels": sapoWLTimeLayer,
+    "Coawst - surface salinity": sapoSSTimeLayer,
+    "Coawst - surface temperature": sapoSTTimeLayer
 };
 
 map.on('overlayadd', function(eventLayer) {
-    if (eventLayer.name == 'Icoast - water levels') {
+    if (eventLayer.name == 'Coawst - water levels') {
         sapoLegend.addTo(this);
-    } else if (eventLayer.name == 'Icoast - wave height') {
-        sapoWHLegend.addTo(this);
-    } else if (eventLayer.name == 'Icoast - surface salinity') {
+    } else if (eventLayer.name == 'Coawst - surface salinity') {
         sapoSSLegend.addTo(this);
-    } else if (eventLayer.name == 'Icoast - surface temperature') {
+    } else if (eventLayer.name == 'Coawst - surface temperature') {
         sapoSTLegend.addTo(this);
     }
 });
 
 map.on('overlayremove', function(eventLayer) {
-    if (eventLayer.name == 'Icoast - water levels') {
+    if (eventLayer.name == 'Coawst - water levels') {
         map.removeControl(sapoLegend);
-    } else if (eventLayer.name == 'Icoast - wave height') {
-        map.removeControl(sapoWHLegend);
-	} else if (eventLayer.name == 'Icoast - surface salinity') {
+	} else if (eventLayer.name == 'Coawst - surface salinity') {
         map.removeControl(sapoSSLegend);
-	} else if (eventLayer.name == 'Icoast - surface temperature') {
+	} else if (eventLayer.name == 'Coawst - surface temperature') {
         map.removeControl(sapoSTLegend);
     }
 });
@@ -187,7 +161,6 @@ L.control.layers(baseLayers, overlayMaps).addTo(map);
 
 /*
 sapoWLTimeLayer.addTo(map);
-sapoWHTimeLayer.addTo(map);
 sapoSSTimeLayer.addTo(map);
 */
 
