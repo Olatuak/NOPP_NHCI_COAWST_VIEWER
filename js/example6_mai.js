@@ -33,7 +33,7 @@ var map = L.map('map', {
     center: [26.73, -75.975]
 });
 
-var sapoWMS= "http://icoast.rc.ufl.edu/thredds/wms/coawst_L0/L0_his_20220809.nc";
+var sapoWMS= "http://icoast.rc.ufl.edu/thredds/wms/coawst_L0/L0_qck_20220809.nc";
 
 var sapoWLLayer = L.tileLayer.wms(sapoWMS, {
     layers: 'zeta',
