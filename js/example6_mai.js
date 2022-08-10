@@ -146,32 +146,32 @@ sapoSTLegend.onAdd = function(map) {
 
 
 var overlayMaps = {
-    "Coawst - water levels": sapoWLTimeLayer,
+    "Coawst L0 - water levels": sapoWLTimeLayer,
 //    "Icoast - wave height": sapoWHTimeLayer,
-    "Coawst - surface salinity": sapoSSTimeLayer,
-    "Coawst - surface temperature": sapoSTTimeLayer
+    "Coawst L0 - surface salinity": sapoSSTimeLayer,
+    "Coawst L0 - surface temperature": sapoSTTimeLayer
 };
 
 map.on('overlayadd', function(eventLayer) {
-    if (eventLayer.name == 'Coawst - water levels') {
+    if (eventLayer.name == 'Coawst L0 - water levels') {
         sapoLegend.addTo(this);
 //    } else if (eventLayer.name == 'Icoast - wave height') {
 //        sapoWHLegend.addTo(this);
-    } else if (eventLayer.name == 'Coawst - surface salinity') {
+    } else if (eventLayer.name == 'Coawst L0 - surface salinity') {
         sapoSSLegend.addTo(this);
-    } else if (eventLayer.name == 'Coawst - surface temperature') {
+    } else if (eventLayer.name == 'Coawst L0 - surface temperature') {
         sapoSTLegend.addTo(this);
     }
 });
 
 map.on('overlayremove', function(eventLayer) {
-    if (eventLayer.name == 'Coawst - water levels') {
+    if (eventLayer.name == 'Coawst L0 - water levels') {
         map.removeControl(sapoLegend);
 //    } else if (eventLayer.name == 'Icoast - wave height') {
 //        map.removeControl(sapoWHLegend);
-    } else if (eventLayer.name == 'Coawst - surface salinity') {
+    } else if (eventLayer.name == 'Coawst L0 - surface salinity') {
         map.removeControl(sapoSSLegend);
-    } else if (eventLayer.name == 'Coawst - surface temperature') {
+    } else if (eventLayer.name == 'Coawst L0 - surface temperature') {
         map.removeControl(sapoSTLegend);
     }
 });
