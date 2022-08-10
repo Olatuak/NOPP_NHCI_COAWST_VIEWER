@@ -169,9 +169,9 @@ map.on('overlayremove', function(eventLayer) {
         map.removeControl(sapoLegend);
 //    } else if (eventLayer.name == 'Icoast - wave height') {
 //        map.removeControl(sapoWHLegend);
-	} else if (eventLayer.name == 'Coawst - surface salinity') {
+    } else if (eventLayer.name == 'Coawst - surface salinity') {
         map.removeControl(sapoSSLegend);
-	} else if (eventLayer.name == 'Coawst - surface temperature') {
+    } else if (eventLayer.name == 'Coawst - surface temperature') {
         map.removeControl(sapoSTLegend);
     }
 });
