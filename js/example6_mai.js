@@ -39,7 +39,7 @@ var map = L.map('map', {
 });
 
 var sapoWMS = "http://icoast.rc.ufl.edu/thredds/wms/coawst/L0/forecast_qck/NHCI_L0_QCK_best.ncd"
-var sapoWMS_avg = "http://icoast.rc.ufl.edu/thredds/wms/coawst/L0/forecast_avg/NHCI_L0_AVG_best.ncd"
+var sapoWMS_his = "http://icoast.rc.ufl.edu/thredds/wms/coawst/L0/forecast_his/NHCI_L0_HIS_best.ncd"
 
 var sapoWLLayer = L.tileLayer.wms(sapoWMS, {
     layers: 'zeta',
@@ -61,7 +61,7 @@ var sapoWHLayer = L.nonTiledLayer.wms(sapoWMS, {
 });
 */
 
-var sapoSSLayer = L.nonTiledLayer.wms(sapoWMS_avg, {
+var sapoSSLayer = L.nonTiledLayer.wms(sapoWMS_his, {
     layers: 'salt',
     format: 'image/png',
     transparent: true,
@@ -69,7 +69,7 @@ var sapoSSLayer = L.nonTiledLayer.wms(sapoWMS_avg, {
     abovemaxcolor: "extend",
     belowmincolor: "extend",
 });
-var sapoSTLayer = L.nonTiledLayer.wms(sapoWMS_avg, {
+var sapoSTLayer = L.nonTiledLayer.wms(sapoWMS_his, {
     layers: 'temp',
     format: 'image/png',
     transparent: true,
@@ -127,7 +127,7 @@ var sapoSSLegend = L.control({
     position: 'bottomleft'
 });
 sapoSSLegend.onAdd = function(map) {
-    var src = sapoWMS_avg + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=salt&colorscalerange=0,35&PALETTE=rainbow";
+    var src = sapoWMS_his + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=salt&colorscalerange=0,35&PALETTE=rainbow";
     var div = L.DomUtil.create('div', 'info legend');
     div.innerHTML +=
         '<img src="' + src + '" alt="legend">';
@@ -137,7 +137,7 @@ var sapoSTLegend = L.control({
     position: 'bottomright'
 });
 sapoSTLegend.onAdd = function(map) {
-    var src = sapoWMS_avg + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=temp&colorscalerange=23,30&PALETTE=rainbow";
+    var src = sapoWMS_his + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=temp&colorscalerange=23,30&PALETTE=rainbow";
     var div = L.DomUtil.create('div', 'info legend');
     div.innerHTML +=
         '<img src="' + src + '" alt="legend">';
