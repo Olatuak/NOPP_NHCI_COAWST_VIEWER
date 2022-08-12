@@ -61,7 +61,7 @@ var sapoWHLayer = L.nonTiledLayer.wms(sapoWMS, {
 */
 
 var sapoSSLayer = L.nonTiledLayer.wms(sapoWMS, {
-    layers: 'salt',
+    layers: 'salt_sur',
     format: 'image/png',
     transparent: true,
     colorscalerange: '0,35',
@@ -69,7 +69,7 @@ var sapoSSLayer = L.nonTiledLayer.wms(sapoWMS, {
     belowmincolor: "extend",
 });
 var sapoSTLayer = L.nonTiledLayer.wms(sapoWMS, {
-    layers: 'temp',
+    layers: 'temp_sur',
     format: 'image/png',
     transparent: true,
     colorscalerange: '23,30',
@@ -126,7 +126,7 @@ var sapoSSLegend = L.control({
     position: 'bottomleft'
 });
 sapoSSLegend.onAdd = function(map) {
-    var src = sapoWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=salt&colorscalerange=0,35&PALETTE=rainbow";
+    var src = sapoWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=salt_sur&colorscalerange=0,35&PALETTE=rainbow";
     var div = L.DomUtil.create('div', 'info legend');
     div.innerHTML +=
         '<img src="' + src + '" alt="legend">';
@@ -136,7 +136,7 @@ var sapoSTLegend = L.control({
     position: 'bottomright'
 });
 sapoSTLegend.onAdd = function(map) {
-    var src = sapoWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=temp&colorscalerange=23,30&PALETTE=rainbow";
+    var src = sapoWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=temp_sur&colorscalerange=23,30&PALETTE=rainbow";
     var div = L.DomUtil.create('div', 'info legend');
     div.innerHTML +=
         '<img src="' + src + '" alt="legend">';
