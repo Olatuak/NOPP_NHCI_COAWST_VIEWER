@@ -64,7 +64,7 @@ var sapoSSLayer = L.nonTiledLayer.wms(sapoWMS, {
     layers: 'salt_sur',
     format: 'image/png',
     transparent: true,
-    colorscalerange: '0,35',
+    colorscalerange: '0,37',
     abovemaxcolor: "extend",
     belowmincolor: "extend",
 });
@@ -72,7 +72,7 @@ var sapoSTLayer = L.nonTiledLayer.wms(sapoWMS, {
     layers: 'temp_sur',
     format: 'image/png',
     transparent: true,
-    colorscalerange: '23,30',
+    colorscalerange: '23,37',
     abovemaxcolor: "extend",
     belowmincolor: "extend",
 });
