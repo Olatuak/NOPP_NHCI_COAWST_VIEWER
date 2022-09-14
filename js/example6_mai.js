@@ -269,7 +269,7 @@ map.on('overlayadd', function(eventLayer) {
     } else if (eventLayer.name == 'L0 - surface temperature') {
         sapoSTLegend.addTo(this);
     } else if (eventLayer.name == 'L1- GOMSAB - water levels') {
-        sapoSSLegend.addTo(this);
+        gomsabLegend.addTo(this);
     } else if (eventLayer.name == 'L1- GOMSAB - wave height') {
         gomsabWHLegend.addTo(this);
     } else if (eventLayer.name == 'L1- GOMSAB - surface salinity') {
