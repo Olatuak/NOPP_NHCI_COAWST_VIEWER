@@ -271,11 +271,11 @@ map.on('overlayadd', function(eventLayer) {
     } else if (eventLayer.name == 'L1- GOMSAB - water levels') {
         sapoSSLegend.addTo(this);
     } else if (eventLayer.name == 'L1- GOMSAB - wave height') {
-        sapoSTLegend.addTo(this);
+        gomsabWHLegend.addTo(this);
     } else if (eventLayer.name == 'L1- GOMSAB - surface salinity') {
-        sapoSSLegend.addTo(this);
+        gomsabSSLegend.addTo(this);
     } else if (eventLayer.name == 'L1- GOMSAB - surface temperature') {
-        sapoSTLegend.addTo(this);
+        gomsabSTLegend.addTo(this);
     }
 });
 
