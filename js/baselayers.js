@@ -26,7 +26,7 @@ function getCommonBaseLayers(map){
     
     return {
         "OSM": osmLayer,
-        "EMODnet Bathymetry": bathymetryGroupLayer
+        "Coastline": bathymetryGroupLayer
         
     };
 }
