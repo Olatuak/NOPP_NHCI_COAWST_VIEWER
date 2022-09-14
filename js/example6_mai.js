@@ -143,12 +143,124 @@ sapoSTLegend.onAdd = function(map) {
     return div;
 };
 
+// Read L1 GOMSAB outputs
+
+var gomsabWMS = "http://icoast.rc.ufl.edu/thredds/wms/coawst/L1/GOMSAB_2km/qck/GOMSAB_2km_qck_best.ncd"
+
+var gomsabWLLayer = L.tileLayer.wms(gomsabWMS, {
+    layers: 'zeta',
+    format: 'image/png',
+    transparent: true,
+    colorscalerange: '-1.5,1.5',
+    abovemaxcolor: "extend",
+    belowmincolor: "extend",
+});
+
+/*
+var gomsabWHLayer = L.nonTiledLayer.wms(gomsabWMS, {
+    layers: 'Hwave',
+    format: 'image/png',
+    transparent: true,
+    colorscalerange: '0,5.5',
+    abovemaxcolor: "extend",
+    belowmincolor: "extend",
+});
+*/
+
+var gomsabSSLayer = L.nonTiledLayer.wms(gomsabWMS, {
+    layers: 'salt_sur',
+    format: 'image/png',
+    transparent: true,
+    colorscalerange: '15,37',
+    abovemaxcolor: "extend",
+    belowmincolor: "extend",
+});
+var gomsabSTLayer = L.nonTiledLayer.wms(gomsabWMS, {
+    layers: 'temp_sur',
+    format: 'image/png',
+    transparent: true,
+    colorscalerange: '23,37',
+    abovemaxcolor: "extend",
+    belowmincolor: "extend",
+});
+
+
+var proxy = 'server/proxy.php';
+var gomsabWLTimeLayer = L.timeDimension.layer.wms(gomsabWLLayer, {
+    proxy: proxy,
+    updateTimeDimension: false
+});
+
+/*
+var gomsabWHTimeLayer = L.timeDimension.layer.wms(gomsabWHLayer, {
+    proxy: proxy
+});
+*/
+
+var gomsabSSTimeLayer = L.timeDimension.layer.wms(gomsabSSLayer, {
+    proxy: proxy
+});
+var gomsabSTTimeLayer = L.timeDimension.layer.wms(gomsabSTLayer, {
+    proxy: proxy
+});
+
+var gomsabLegend = L.control({
+    position: 'bottomright'
+});
+
+gomsabLegend.onAdd = function(map) {
+    var src = gomsabWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=zeta&colorscalerange=-1.5,1.5&PALETTE=rainbow";
+    var div = L.DomUtil.create('div', 'info legend');
+    div.innerHTML +=
+        '<img src="' + src + '" alt="legend">';
+    return div;
+};
+
+/*
+var gomsabWHLegend = L.control({
+    position: 'bottomleft'
+});
+gomsabWHLegend.onAdd = function(map) {
+    var src = gomsabWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=Hwave&colorscalerange=0,5.5&PALETTE=rainbow";
+    var div = L.DomUtil.create('div', 'info legend');
+    div.innerHTML +=
+        '<img src="' + src + '" alt="legend">';
+    return div;
+};
+*/
+
+var gomsabSSLegend = L.control({
+    position: 'bottomleft'
+});
+gomsabSSLegend.onAdd = function(map) {
+    var src = gomsabWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=salt_sur&colorscalerange=15,37&PALETTE=rainbow";
+    var div = L.DomUtil.create('div', 'info legend');
+    div.innerHTML +=
+        '<img src="' + src + '" alt="legend">';
+    return div;
+};
+var gomsabSTLegend = L.control({
+    position: 'bottomright'
+});
+gomsabSTLegend.onAdd = function(map) {
+    var src = gomsabWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=temp_sur&colorscalerange=23,37&PALETTE=rainbow";
+    var div = L.DomUtil.create('div', 'info legend');
+    div.innerHTML +=
+        '<img src="' + src + '" alt="legend">';
+    return div;
+};
+
+// Plot all in map
 
 var overlayMaps = {
     "Coawst L0 - water levels": sapoWLTimeLayer,
 //    "Icoast - wave height": sapoWHTimeLayer,
     "Coawst L0 - surface salinity": sapoSSTimeLayer,
-    "Coawst L0 - surface temperature": sapoSTTimeLayer
+    "Coawst L0 - surface temperature": sapoSTTimeLayer,
+    "Coawst L1- GOMSAB - water levels": gomsabWLTimeLayer,
+//    "Icoast - wave height": gomsabWHTimeLayer,
+    "Coawst L1- GOMSAB - surface salinity": gomsabSSTimeLayer,
+    "Coawst L1- GOMSAB - surface temperature": gomsabSTTimeLayer
 };
 
 map.on('overlayadd', function(eventLayer) {
@@ -159,6 +271,14 @@ map.on('overlayadd', function(eventLayer) {
     } else if (eventLayer.name == 'Coawst L0 - surface salinity') {
         sapoSSLegend.addTo(this);
     } else if (eventLayer.name == 'Coawst L0 - surface temperature') {
+        sapoSTLegend.addTo(this);
+    } else if (eventLayer.name == 'Coawst L1- GOMSAB - water levels') {
+        sapoSSLegend.addTo(this);
+//    } else if (eventLayer.name == 'Coawst L1- GOMSAB - wave height') {
+//        sapoSTLegend.addTo(this);
+    } else if (eventLayer.name == 'Coawst L1- GOMSAB - surface salinity') {
+        sapoSSLegend.addTo(this);
+    } else if (eventLayer.name == 'Coawst L1- GOMSAB - surface temperature') {
         sapoSTLegend.addTo(this);
     }
 });
@@ -172,6 +292,14 @@ map.on('overlayremove', function(eventLayer) {
         map.removeControl(sapoSSLegend);
     } else if (eventLayer.name == 'Coawst L0 - surface temperature') {
         map.removeControl(sapoSTLegend);
+} else if (eventLayer.name == 'Coawst L1-GOMSAB - water levels') {
+        map.removeControl(gomsabSSLegend);
+//    } else if (eventLayer.name == 'COAWST L1-GOMSAB - wave height') {
+//        map.removeControl(gomsabWHLegend);
+    } else if (eventLayer.name == 'Coawst L1-GOMSAB - surface salinity') {
+        map.removeControl(gomsabSSLegend);
+    } else if (eventLayer.name == 'Coawst L1-GOMSAB - surface temperature') {
+        map.removeControl(gomsabSTLegend);
     }
 });
 
