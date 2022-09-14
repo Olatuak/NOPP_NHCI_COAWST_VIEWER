@@ -250,7 +250,7 @@ gomsabSTLegend.onAdd = function(map) {
 
 var overlayMaps = {
     "L0- water levels": sapoWLTimeLayer,
-//    "L0- wave height": sapoWHTimeLayer,
+//    "L0- Hm0": sapoWHTimeLayer,
     "L0- SSS": sapoSSTimeLayer,
     "L0- SST": sapoSTTimeLayer,
     "L1- GOMSAB - water levels": gomsabWLTimeLayer,
