@@ -288,14 +288,14 @@ map.on('overlayremove', function(eventLayer) {
         map.removeControl(sapoSSLegend);
     } else if (eventLayer.name == 'L0 - surface temperature') {
         map.removeControl(sapoSTLegend);
-} else if (eventLayer.name == 'L1-GOMSAB - water levels') {
-        map.removeControl(gomsabSSLegend);
-//    } else if (eventLayer.name == 'L1-GOMSAB - wave height') {
-//        map.removeControl(gomsabWHLegend);
+    } else if (eventLayer.name == 'L1-GOMSAB - water levels') {
+        map.removeControl(gomsabLegend);
+    } else if (eventLayer.name == 'L1-GOMSAB - wave height') {
+        map.removeControl(gomsabWHLegend);
     } else if (eventLayer.name == 'L1-GOMSAB - surface salinity') {
         map.removeControl(gomsabSSLegend);
     } else if (eventLayer.name == 'L1-GOMSAB - surface temperature') {
-        map.removeControl(sapoSTLegend);
+        map.removeControl(gomsabSTLegend);
     }
 });
 
