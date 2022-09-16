@@ -368,7 +368,7 @@ map.on('overlayremove', function(eventLayer) {
 });
 
 var baseLayers = getCommonBaseLayers(map); // see baselayers.js
-L.control.layers(baseLayers, overlayMaps, overlayMaps2).addTo(map);
+L.control.layers(baseLayers, overlayMaps, overlayMaps_max).addTo(map);
 
 /*
 sapoWLTimeLayer.addTo(map);
