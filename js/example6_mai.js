@@ -248,7 +248,7 @@ gomsabSTLegend.onAdd = function(map) {
 
 // Read L1 GOMSAB MAX outputs
 
-var gomsabWMS_max = "http://icoast.rc.ufl.edu/thredds/wms/coawst/L1/GOMSAB_2km/qck/GOMSAB_2km_qck_best.ncd"
+var gomsabWMS_max = "http://icoast.rc.ufl.edu/thredds/wms/coawst/L1/GOMSAB_2km/max/GOMSAB_2km_max_best.ncd"
 
 var gomsabWLmaxLayer = L.tileLayer.wms(gomsabWMS_max, {
     layers: 'zeta_max',
@@ -260,7 +260,7 @@ var gomsabWLmaxLayer = L.tileLayer.wms(gomsabWMS_max, {
 });
 
 var gomsabWHmaxLayer = L.nonTiledLayer.wms(gomsabWMS_max, {
-    layers: 'Hm0_max',
+    layers: 'Hmax',
     format: 'image/png',
     transparent: true,
     colorscalerange: '0,5.5',
@@ -277,11 +277,11 @@ var gomsabWHmaxTimeLayer = L.timeDimension.layer.wms(gomsabWHmaxLayer, {
     proxy: proxy
 });
 
-var gomsabmaxLegend = L.control({
+var gomsabWLmaxLegend = L.control({
     position: 'bottomright'
 });
 
-gomsabmaxLegend.onAdd = function(map) {
+gomsabWLmaxLegend.onAdd = function(map) {
     var src = gomsabWMS_max + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=zeta_max&colorscalerange=-1.5,1.5&PALETTE=rainbow";
     var div = L.DomUtil.create('div', 'info legend');
     div.innerHTML +=
@@ -292,7 +292,7 @@ var gomsabWHmaxLegend = L.control({
     position: 'bottomleft'
 });
 gomsabWHmaxLegend.onAdd = function(map) {
-    var src = gomsabWMS_max + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=Hm0_max&colorscalerange=0,5.5&PALETTE=rainbow";
+    var src = gomsabWMS_max + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=Hmax&colorscalerange=0,5.5&PALETTE=rainbow";
     var div = L.DomUtil.create('div', 'info legend');
     div.innerHTML +=
         '<img src="' + src + '" alt="legend">';
@@ -311,7 +311,7 @@ var overlayMaps = {
     "L1- GOMSAB - SSS": gomsabSSTimeLayer,
     "L1- GOMSAB - SST": gomsabSTTimeLayer,
     "L1- GOMSAB - zeta_max": gomsabWLmaxTimeLayer,
-    "L1- GOMSAB - Hm0_max": gomsabSWHmaxTimeLayer
+    "L1- GOMSAB - Hm0_max": gomsabWHmaxTimeLayer
 };
 
 map.on('overlayadd', function(eventLayer) {
