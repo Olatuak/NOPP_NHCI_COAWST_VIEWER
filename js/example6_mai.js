@@ -246,6 +246,59 @@ gomsabSTLegend.onAdd = function(map) {
     return div;
 };
 
+// Read L1 GOMSAB MAX outputs
+
+var gomsabWMS_max = "http://icoast.rc.ufl.edu/thredds/wms/coawst/L1/GOMSAB_2km/qck/GOMSAB_2km_qck_best.ncd"
+
+var gomsabWLmaxLayer = L.tileLayer.wms(gomsabWMS_max, {
+    layers: 'zeta_max',
+    format: 'image/png',
+    transparent: true,
+    colorscalerange: '-1.5,1.5',
+    abovemaxcolor: "extend",
+    belowmincolor: "extend",
+});
+
+var gomsabWHmaxLayer = L.nonTiledLayer.wms(gomsabWMS_max, {
+    layers: 'Hm0_max',
+    format: 'image/png',
+    transparent: true,
+    colorscalerange: '0,5.5',
+    abovemaxcolor: "extend",
+    belowmincolor: "extend",
+});
+
+var gomsabWLmaxTimeLayer = L.timeDimension.layer.wms(gomsabWLmaxLayer, {
+    proxy: proxy,
+    updateTimeDimension: false
+});
+
+var gomsabWHmaxTimeLayer = L.timeDimension.layer.wms(gomsabWHmaxLayer, {
+    proxy: proxy
+});
+
+var gomsabmaxLegend = L.control({
+    position: 'bottomright'
+});
+
+gomsabmaxLegend.onAdd = function(map) {
+    var src = gomsabWMS_max + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=zeta_max&colorscalerange=-1.5,1.5&PALETTE=rainbow";
+    var div = L.DomUtil.create('div', 'info legend');
+    div.innerHTML +=
+        '<img src="' + src + '" alt="legend">';
+    return div;
+};
+var gomsabWHmaxLegend = L.control({
+    position: 'bottomleft'
+});
+gomsabWHmaxLegend.onAdd = function(map) {
+    var src = gomsabWMS_max + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=Hm0_max&colorscalerange=0,5.5&PALETTE=rainbow";
+    var div = L.DomUtil.create('div', 'info legend');
+    div.innerHTML +=
+        '<img src="' + src + '" alt="legend">';
+    return div;
+};
+
 // Plot all in map
 
 var overlayMaps = {
@@ -256,7 +309,9 @@ var overlayMaps = {
     "L1- GOMSAB - water levels": gomsabWLTimeLayer,
     "L1- GOMSAB - Hm0": gomsabWHTimeLayer,
     "L1- GOMSAB - SSS": gomsabSSTimeLayer,
-    "L1- GOMSAB - SST": gomsabSTTimeLayer
+    "L1- GOMSAB - SST": gomsabSTTimeLayer,
+    "L1- GOMSAB - zeta_max": gomsabWLmaxTimeLayer,
+    "L1- GOMSAB - Hm0_max": gomsabSWHmaxTimeLayer
 };
 
 map.on('overlayadd', function(eventLayer) {
@@ -276,6 +331,10 @@ map.on('overlayadd', function(eventLayer) {
         gomsabSSLegend.addTo(this);
     } else if (eventLayer.name == 'L1- GOMSAB - SST') {
         gomsabSTLegend.addTo(this);
+    } else if (eventLayer.name == 'L1- GOMSAB - zeta_max') {
+        gomsabWLmaxLegend.addTo(this);
+    } else if (eventLayer.name == 'L1- GOMSAB - Hm0_max') {
+        gomsabWHmaxLegend.addTo(this);
     }
 });
 
@@ -296,6 +355,10 @@ map.on('overlayremove', function(eventLayer) {
         map.removeControl(gomsabSSLegend);
     } else if (eventLayer.name == 'L1- GOMSAB - SST') {
         map.removeControl(gomsabSTLegend);
+    } else if (eventLayer.name == 'L1- GOMSAB - zeta_max') {
+        map.removeControl(gomsabWLmaxLegend);
+    } else if (eventLayer.name == 'L1- GOMSAB - Hm0_max') {
+        map.removeControl(gomsabWHmaxLegend);
     }
 });
 
