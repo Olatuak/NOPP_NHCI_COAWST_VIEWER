@@ -309,15 +309,11 @@ var overlayMaps = {
     "L1- GOMSAB - water levels": gomsabWLTimeLayer,
     "L1- GOMSAB - Hm0": gomsabWHTimeLayer,
     "L1- GOMSAB - SSS": gomsabSSTimeLayer,
-    "L1- GOMSAB - SST": gomsabSTTimeLayer
-//    "L1- GOMSAB - zeta_max": gomsabWLmaxTimeLayer,
-//    "L1- GOMSAB - Hm0_max": gomsabWHmaxTimeLayer
-};
-
-var overlayMaps_max = {
+    "L1- GOMSAB - SST": gomsabSTTimeLayer,
     "L1- GOMSAB - zeta_max": gomsabWLmaxTimeLayer,
     "L1- GOMSAB - Hm0_max": gomsabWHmaxTimeLayer
 };
+
 
 map.on('overlayadd', function(eventLayer) {
     if (eventLayer.name == 'L0- water levels') {
@@ -368,7 +364,7 @@ map.on('overlayremove', function(eventLayer) {
 });
 
 var baseLayers = getCommonBaseLayers(map); // see baselayers.js
-L.control.layers(baseLayers, overlayMaps, overlayMaps_max).addTo(map);
+L.control.layers(baseLayers, overlayMaps).addTo(map);
 
 /*
 sapoWLTimeLayer.addTo(map);
