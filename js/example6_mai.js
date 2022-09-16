@@ -12,9 +12,9 @@ var today5 = new Date();
 var numberOfDaysToAdd = 5;
 today5.setDate(today5.getDate() + numberOfDaysToAdd); 
 var date5 = today5.getFullYear()+'-'+(today5.getMonth()+1)+'-'+today5.getDate();
-//var TimeInt = date+'/'+date5;
+var TimeInt = date+'/'+date5;
 
-var TimeInt = date+':00:00:00Z/'+date5+':00:00:00Z';
+//var TimeInt = date+':00:00:00Z/'+date5+':00:00:00Z';
 
 var map = L.map('map', {
     //zoom: 10,
@@ -309,7 +309,12 @@ var overlayMaps = {
     "L1- GOMSAB - water levels": gomsabWLTimeLayer,
     "L1- GOMSAB - Hm0": gomsabWHTimeLayer,
     "L1- GOMSAB - SSS": gomsabSSTimeLayer,
-    "L1- GOMSAB - SST": gomsabSTTimeLayer,
+    "L1- GOMSAB - SST": gomsabSTTimeLayer
+//    "L1- GOMSAB - zeta_max": gomsabWLmaxTimeLayer,
+//    "L1- GOMSAB - Hm0_max": gomsabWHmaxTimeLayer
+};
+
+var overlayMaps_max = {
     "L1- GOMSAB - zeta_max": gomsabWLmaxTimeLayer,
     "L1- GOMSAB - Hm0_max": gomsabWHmaxTimeLayer
 };
@@ -363,7 +368,7 @@ map.on('overlayremove', function(eventLayer) {
 });
 
 var baseLayers = getCommonBaseLayers(map); // see baselayers.js
-L.control.layers(baseLayers, overlayMaps).addTo(map);
+L.control.layers(baseLayers, overlayMaps, overlayMaps2).addTo(map);
 
 /*
 sapoWLTimeLayer.addTo(map);
