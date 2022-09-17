@@ -143,6 +143,108 @@ sapoSTLegend.onAdd = function(map) {
     return div;
 };
 
+// Read L1 NYBIGHT outputs
+
+var nybWMS = "http://icoast.rc.ufl.edu/thredds/wms/coawst/L1/GOMSAB_2km/qck/GOMSAB_2km_qck_best.ncd"
+
+var nybWLLayer = L.tileLayer.wms(nybWMS, {
+    layers: 'zeta',
+    format: 'image/png',
+    transparent: true,
+    colorscalerange: '-2.5,2.5',
+    abovemaxcolor: "extend",
+    belowmincolor: "extend",
+});
+
+var nybWHLayer = L.nonTiledLayer.wms(nybWMS, {
+    layers: 'Hwave',
+    format: 'image/png',
+    transparent: true,
+    colorscalerange: '0,5.5',
+    abovemaxcolor: "extend",
+    belowmincolor: "extend",
+});
+
+var nybSSLayer = L.nonTiledLayer.wms(nybWMS, {
+    layers: 'salt_sur',
+    format: 'image/png',
+    transparent: true,
+    colorscalerange: '15,37',
+    abovemaxcolor: "extend",
+    belowmincolor: "extend",
+});
+var nybSTLayer = L.nonTiledLayer.wms(nybWMS, {
+    layers: 'temp_sur',
+    format: 'image/png',
+    transparent: true,
+    colorscalerange: '23,32',
+    abovemaxcolor: "extend",
+    belowmincolor: "extend",
+});
+
+var proxy = 'server/proxy.php';
+var gomsabWLTimeLayer = L.timeDimension.layer.wms(nybWLLayer, {
+    proxy: proxy,
+    updateTimeDimension: false
+});
+
+var nybWHTimeLayer = L.timeDimension.layer.wms(nybWHLayer, {
+    proxy: proxy
+});
+
+var nybSSTimeLayer = L.timeDimension.layer.wms(nybSSLayer, {
+    proxy: proxy
+});
+
+var nybSTTimeLayer = L.timeDimension.layer.wms(nybSTLayer, {
+    proxy: proxy
+});
+
+var nybLegend = L.control({
+    position: 'bottomright'
+});
+
+nybLegend.onAdd = function(map) {
+    var src = nybWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=zeta&colorscalerange=-2.5,2.5&PALETTE=rainbow";
+    var div = L.DomUtil.create('div', 'info legend');
+    div.innerHTML +=
+        '<img src="' + src + '" alt="legend">';
+    return div;
+};
+
+
+var nybWHLegend = L.control({
+    position: 'bottomleft'
+});
+nybWHLegend.onAdd = function(map) {
+    var src = nybWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=Hwave&colorscalerange=0,5.5&PALETTE=rainbow";
+    var div = L.DomUtil.create('div', 'info legend');
+    div.innerHTML +=
+        '<img src="' + src + '" alt="legend">';
+    return div;
+};
+
+var nybSSLegend = L.control({
+    position: 'bottomleft'
+});
+nybSSLegend.onAdd = function(map) {
+    var src = nybWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=salt_sur&colorscalerange=15,37&PALETTE=rainbow";
+    var div = L.DomUtil.create('div', 'info legend');
+    div.innerHTML +=
+        '<img src="' + src + '" alt="legend">';
+    return div;
+};
+var nybSTLegend = L.control({
+    position: 'bottomright'
+});
+nybSTLegend.onAdd = function(map) {
+    var src = nybWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=temp_sur&colorscalerange=23,32&PALETTE=rainbow";
+    var div = L.DomUtil.create('div', 'info legend');
+    div.innerHTML +=
+        '<img src="' + src + '" alt="legend">';
+    return div;
+};
+
 // Read L1 GOMSAB outputs
 
 var gomsabWMS = "http://icoast.rc.ufl.edu/thredds/wms/coawst/L1/GOMSAB_2km/qck/GOMSAB_2km_qck_best.ncd"
