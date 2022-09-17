@@ -144,8 +144,7 @@ sapoSTLegend.onAdd = function(map) {
 
 // Read L1 NYBIGHT outputs
 
-//var nybWMS = "http://geoport.whoi.edu/thredds/wms/vortexfs1/usgs/Projects/NOPP_forecast/NYBight/nyb_qck.nc"
-var nybWMS = "http://icoast.rc.ufl.edu/thredds/wms/coawst/L1/GOMSAB_2km/qck/GOMSAB_2km_qck_best.ncd"
+var nybWMS = "http://geoport.whoi.edu/thredds/wms/vortexfs1/usgs/Projects/NOPP_forecast/NYBight/nyb_qck.nc"
 
 var nybWLLayer = L.tileLayer.wms(nybWMS, {
     layers: 'zeta',
