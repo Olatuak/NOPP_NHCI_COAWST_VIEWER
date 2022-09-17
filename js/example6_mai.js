@@ -183,7 +183,6 @@ var nybSTLayer = L.nonTiledLayer.wms(nybWMS, {
     belowmincolor: "extend",
 });
 
-/*
 var nybWLTimeLayer = L.timeDimension.layer.wms(nybWLLayer, {
     proxy: proxy,
     updateTimeDimension: false
@@ -201,6 +200,7 @@ var nybSTTimeLayer = L.timeDimension.layer.wms(nybSTLayer, {
     proxy: proxy
 });
 
+/*
 var nybLegend = L.control({
     position: 'bottomright'
 });
