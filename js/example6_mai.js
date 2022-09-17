@@ -268,14 +268,14 @@ var gomsabWHmaxLayer = L.nonTiledLayer.wms(gomsabWMS_max, {
     belowmincolor: "extend",
 });
 
-var gomsabWLmaxTimeLayer = L.timeDimension.layer.wms(gomsabWLmaxLayer, {
-    proxy: proxy,
-    updateTimeDimension: false
-});
+//var gomsabWLmaxTimeLayer = L.timeDimension.layer.wms(gomsabWLmaxLayer, {
+//    proxy: proxy,
+//    updateTimeDimension: false
+//});
 
-var gomsabWHmaxTimeLayer = L.timeDimension.layer.wms(gomsabWHmaxLayer, {
-    proxy: proxy
-});
+//var gomsabWHmaxTimeLayer = L.timeDimension.layer.wms(gomsabWHmaxLayer, {
+//    proxy: proxy
+//});
 
 var gomsabWLmaxLegend = L.control({
     position: 'bottomright'
@@ -309,14 +309,9 @@ var overlayMaps = {
     "L1- GOMSAB - water levels": gomsabWLTimeLayer,
     "L1- GOMSAB - Hm0": gomsabWHTimeLayer,
     "L1- GOMSAB - SSS": gomsabSSTimeLayer,
-    "L1- GOMSAB - SST": gomsabSTTimeLayer
-//    "L1- GOMSAB - zeta_max": gomsabWLmaxTimeLayer,
-//    "L1- GOMSAB - Hm0_max": gomsabWHmaxTimeLayer
-};
-
-var overlayMaps_max = {
-    "L1- GOMSAB - zeta_max": gomsabWLmaxTimeLayer,
-    "L1- GOMSAB - Hm0_max": gomsabWHmaxTimeLayer
+    "L1- GOMSAB - SST": gomsabSTTimeLayer,
+    "L1- GOMSAB - zeta_max": gomsabWLmaxLayer,
+    "L1- GOMSAB - Hm0_max": gomsabWHmaxLayer
 };
 
 map.on('overlayadd', function(eventLayer) {
@@ -368,7 +363,7 @@ map.on('overlayremove', function(eventLayer) {
 });
 
 var baseLayers = getCommonBaseLayers(map); // see baselayers.js
-L.control.layers(baseLayers, overlayMaps, overlayMaps_max).addTo(map);
+L.control.layers(baseLayers, overlayMaps).addTo(map);
 
 /*
 sapoWLTimeLayer.addTo(map);
