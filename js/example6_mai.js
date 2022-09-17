@@ -142,8 +142,6 @@ sapoSTLegend.onAdd = function(map) {
     return div;
 };
 
-
-/*
 // Read L1 NYBIGHT outputs
 
 //var nybWMS = "http://geoport.whoi.edu/thredds/wms/vortexfs1/usgs/Projects/NOPP_forecast/NYBight/nyb_qck.nc"
@@ -245,7 +243,6 @@ nybSTLegend.onAdd = function(map) {
         '<img src="' + src + '" alt="legend">';
     return div;
 };
-*/
 
 // Read L1 GOMSAB outputs
 
