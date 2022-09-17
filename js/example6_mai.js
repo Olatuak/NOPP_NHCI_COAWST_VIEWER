@@ -77,7 +77,6 @@ var sapoSTLayer = L.nonTiledLayer.wms(sapoWMS, {
     belowmincolor: "extend",
 });
 
-
 var proxy = 'server/proxy.php';
 var sapoWLTimeLayer = L.timeDimension.layer.wms(sapoWLLayer, {
     proxy: proxy,
@@ -145,7 +144,8 @@ sapoSTLegend.onAdd = function(map) {
 
 // Read L1 NYBIGHT outputs
 
-var nybWMS = "http://geoport.whoi.edu/thredds/wms/vortexfs1/usgs/Projects/NOPP_forecast/NYBight/nyb_qck.nc"
+//var nybWMS = "http://geoport.whoi.edu/thredds/wms/vortexfs1/usgs/Projects/NOPP_forecast/NYBight/nyb_qck.nc"
+var nybWMS = "http://icoast.rc.ufl.edu/thredds/wms/coawst/L1/GOMSAB_2km/qck/GOMSAB_2km_qck_best.ncd"
 
 var nybWLLayer = L.tileLayer.wms(nybWMS, {
     layers: 'zeta',
@@ -183,7 +183,7 @@ var nybSTLayer = L.nonTiledLayer.wms(nybWMS, {
 });
 
 var proxy = 'server/proxy.php';
-var gomsabWLTimeLayer = L.timeDimension.layer.wms(nybWLLayer, {
+var nybWLTimeLayer = L.timeDimension.layer.wms(nybWLLayer, {
     proxy: proxy,
     updateTimeDimension: false
 });
