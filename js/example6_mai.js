@@ -200,7 +200,6 @@ var nybSTTimeLayer = L.timeDimension.layer.wms(nybSTLayer, {
     proxy: proxy
 });
 
-/*
 var nybLegend = L.control({
     position: 'bottomright'
 });
@@ -244,8 +243,6 @@ nybSTLegend.onAdd = function(map) {
         '<img src="' + src + '" alt="legend">';
     return div;
 };
-
-*/
 
 // Read L1 GOMSAB outputs
 
