@@ -173,6 +173,7 @@ var nybSSLayer = L.nonTiledLayer.wms(nybWMS, {
     abovemaxcolor: "extend",
     belowmincolor: "extend",
 });
+
 var nybSTLayer = L.nonTiledLayer.wms(nybWMS, {
     layers: 'temp_sur',
     format: 'image/png',
@@ -182,7 +183,7 @@ var nybSTLayer = L.nonTiledLayer.wms(nybWMS, {
     belowmincolor: "extend",
 });
 
-var proxy = 'server/proxy.php';
+/*
 var nybWLTimeLayer = L.timeDimension.layer.wms(nybWLLayer, {
     proxy: proxy,
     updateTimeDimension: false
@@ -203,7 +204,6 @@ var nybSTTimeLayer = L.timeDimension.layer.wms(nybSTLayer, {
 var nybLegend = L.control({
     position: 'bottomright'
 });
-
 nybLegend.onAdd = function(map) {
     var src = nybWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=zeta&colorscalerange=-2.5,2.5&PALETTE=rainbow";
     var div = L.DomUtil.create('div', 'info legend');
@@ -233,6 +233,7 @@ nybSSLegend.onAdd = function(map) {
         '<img src="' + src + '" alt="legend">';
     return div;
 };
+
 var nybSTLegend = L.control({
     position: 'bottomright'
 });
@@ -243,6 +244,8 @@ nybSTLegend.onAdd = function(map) {
         '<img src="' + src + '" alt="legend">';
     return div;
 };
+
+*/
 
 // Read L1 GOMSAB outputs
 
