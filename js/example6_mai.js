@@ -406,10 +406,10 @@ var overlayMaps = {
 //    "L0- Hm0": sapoWHTimeLayer,
     "L0- SSS": sapoSSTimeLayer,
     "L0- SST": sapoSTTimeLayer,
-//    "L1- NYB - water levels": nybWLTimeLayer,
-//    "L1- NYB - Hm0": nybWHTimeLayer,
-//    "L1- NYB - SSS": nybSSTimeLayer,
-//    "L1- NYB - SST": nybSTTimeLayer,
+    "L1- NYB - water levels": nybWLTimeLayer,
+    "L1- NYB - Hm0": nybWHTimeLayer,
+    "L1- NYB - SSS": nybSSTimeLayer,
+    "L1- NYB - SST": nybSTTimeLayer,
     "L1- GOMSAB - water levels": gomsabWLTimeLayer,
     "L1- GOMSAB - Hm0": gomsabWHTimeLayer,
     "L1- GOMSAB - SSS": gomsabSSTimeLayer,
@@ -429,14 +429,14 @@ map.on('overlayadd', function(eventLayer) {
         sapoSSLegend.addTo(this);
     } else if (eventLayer.name == 'L0- SST') {
         sapoSTLegend.addTo(this);
-//    } else if (eventLayer.name == 'L1- NYB - water levels') {
-//        nybLegend.addTo(this);
-//    } else if (eventLayer.name == 'L1- NYB - Hm0') {
-//        nybWHLegend.addTo(this);
-//    } else if (eventLayer.name == 'L1- NYB - SSS') {
-//        nybSSLegend.addTo(this);
-//    } else if (eventLayer.name == 'L1- NYB - SST') {
-//        nybSTLegend.addTo(this);
+    } else if (eventLayer.name == 'L1- NYB - water levels') {
+        nybLegend.addTo(this);
+    } else if (eventLayer.name == 'L1- NYB - Hm0') {
+        nybWHLegend.addTo(this);
+    } else if (eventLayer.name == 'L1- NYB - SSS') {
+        nybSSLegend.addTo(this);
+    } else if (eventLayer.name == 'L1- NYB - SST') {
+        nybSTLegend.addTo(this);
     } else if (eventLayer.name == 'L1- GOMSAB - water levels') {
         gomsabLegend.addTo(this);
     } else if (eventLayer.name == 'L1- GOMSAB - Hm0') {
@@ -465,14 +465,14 @@ map.on('overlayremove', function(eventLayer) {
         map.removeControl(sapoSSLegend);
     } else if (eventLayer.name == 'L0- SST') {
         map.removeControl(sapoSTLegend);
-//    } else if (eventLayer.name == 'L1- NYB - water levels') {
-//        map.removeControl(nybLegend);
-//    } else if (eventLayer.name == 'L1- NYB - Hm0') {
-//        map.removeControl(nybWHLegend);
-//    } else if (eventLayer.name == 'L1- NYB - SSS') {
-//        map.removeControl(nybSSLegend);
-//    } else if (eventLayer.name == 'L1- NYB - SST') {
-//        map.removeControl(nybSTLegend); 
+    } else if (eventLayer.name == 'L1- NYB - water levels') {
+        map.removeControl(nybLegend);
+    } else if (eventLayer.name == 'L1- NYB - Hm0') {
+        map.removeControl(nybWHLegend);
+    } else if (eventLayer.name == 'L1- NYB - SSS') {
+        map.removeControl(nybSSLegend);
+    } else if (eventLayer.name == 'L1- NYB - SST') {
+        map.removeControl(nybSTLegend); 
     } else if (eventLayer.name == 'L1- GOMSAB - water levels') {
         map.removeControl(gomsabLegend);
     } else if (eventLayer.name == 'L1- GOMSAB - Hm0') {
