@@ -73,7 +73,7 @@ var sapoSTLayer = L.nonTiledLayer.wms(sapoWMS, {
     layers: 'temp_sur',
     format: 'image/png',
     transparent: true,
-    colorscalerange: '23,32',
+    colorscalerange: '15,32',
     abovemaxcolor: "extend",
     belowmincolor: "extend",
 });
@@ -178,7 +178,7 @@ var nybSTLayer = L.nonTiledLayer.wms(nybWMS, {
     layers: 'temp_sur',
     format: 'image/png',
     transparent: true,
-    colorscalerange: '23,32',
+    colorscalerange: '15,32',
     abovemaxcolor: "extend",
     belowmincolor: "extend",
 });
@@ -278,7 +278,7 @@ var gomsabSTLayer = L.nonTiledLayer.wms(gomsabWMS, {
     layers: 'temp_sur',
     format: 'image/png',
     transparent: true,
-    colorscalerange: '23,32',
+    colorscalerange: '15,32',
     abovemaxcolor: "extend",
     belowmincolor: "extend",
 });
