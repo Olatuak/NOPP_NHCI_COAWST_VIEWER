@@ -73,7 +73,7 @@ var sapoSTLayer = L.nonTiledLayer.wms(sapoWMS, {
     layers: 'temp_sur',
     format: 'image/png',
     transparent: true,
-    colorscalerange: '23,32',
+    colorscalerange: '15,32',
     abovemaxcolor: "extend",
     belowmincolor: "extend",
 });
@@ -133,7 +133,7 @@ sapoSSLegend.onAdd = function(map) {
     return div;
 };
 var sapoSTLegend = L.control({
-    position: 'bottomright'
+    position: 'bottomleft'
 });
 sapoSTLegend.onAdd = function(map) {
     var src = sapoWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=temp_sur&colorscalerange=23,32&PALETTE=rainbow";
@@ -178,7 +178,7 @@ var nybSTLayer = L.nonTiledLayer.wms(nybWMS, {
     layers: 'temp_sur',
     format: 'image/png',
     transparent: true,
-    colorscalerange: '23,32',
+    colorscalerange: '15,32',
     abovemaxcolor: "extend",
     belowmincolor: "extend",
 });
@@ -201,7 +201,7 @@ var nybSTTimeLayer = L.timeDimension.layer.wms(nybSTLayer, {
 });
 
 var nybLegend = L.control({
-    position: 'bottomright'
+    position: 'bottomleft'
 });
 nybLegend.onAdd = function(map) {
     var src = nybWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=zeta&colorscalerange=-2.5,2.5&PALETTE=rainbow";
@@ -234,7 +234,7 @@ nybSSLegend.onAdd = function(map) {
 };
 
 var nybSTLegend = L.control({
-    position: 'bottomright'
+    position: 'bottomleft'
 });
 nybSTLegend.onAdd = function(map) {
     var src = nybWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=temp_sur&colorscalerange=23,32&PALETTE=rainbow";
@@ -278,7 +278,7 @@ var gomsabSTLayer = L.nonTiledLayer.wms(gomsabWMS, {
     layers: 'temp_sur',
     format: 'image/png',
     transparent: true,
-    colorscalerange: '23,32',
+    colorscalerange: '15,32',
     abovemaxcolor: "extend",
     belowmincolor: "extend",
 });
@@ -303,7 +303,7 @@ var gomsabSTTimeLayer = L.timeDimension.layer.wms(gomsabSTLayer, {
 });
 
 var gomsabLegend = L.control({
-    position: 'bottomright'
+    position: 'bottomleft'
 });
 
 gomsabLegend.onAdd = function(map) {
@@ -336,7 +336,7 @@ gomsabSSLegend.onAdd = function(map) {
     return div;
 };
 var gomsabSTLegend = L.control({
-    position: 'bottomright'
+    position: 'bottomleft'
 });
 gomsabSTLegend.onAdd = function(map) {
     var src = gomsabWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=temp_sur&colorscalerange=23,32&PALETTE=rainbow";
@@ -378,7 +378,7 @@ var gomsabWHmaxLayer = L.nonTiledLayer.wms(gomsabWMS_max, {
 //});
 
 var gomsabWLmaxLegend = L.control({
-    position: 'bottomright'
+    position: 'bottomleft'
 });
 
 gomsabWLmaxLegend.onAdd = function(map) {
