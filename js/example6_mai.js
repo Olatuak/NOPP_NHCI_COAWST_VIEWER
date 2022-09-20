@@ -73,7 +73,7 @@ var sapoSTLayer = L.nonTiledLayer.wms(sapoWMS, {
     layers: 'temp_sur',
     format: 'image/png',
     transparent: true,
-    colorscalerange: '15,32',
+    colorscalerange: '10,32',
     abovemaxcolor: "extend",
     belowmincolor: "extend",
 });
@@ -136,7 +136,7 @@ var sapoSTLegend = L.control({
     position: 'bottomright'
 });
 sapoSTLegend.onAdd = function(map) {
-    var src = sapoWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=temp_sur&colorscalerange=15,32&PALETTE=rainbow";
+    var src = sapoWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=temp_sur&colorscalerange=10,32&PALETTE=rainbow";
     var div = L.DomUtil.create('div', 'info legend');
     div.innerHTML +=
         '<img src="' + src + '" alt="legend">';
@@ -178,7 +178,7 @@ var nybSTLayer = L.nonTiledLayer.wms(nybWMS, {
     layers: 'temp_sur',
     format: 'image/png',
     transparent: true,
-    colorscalerange: '15,32',
+    colorscalerange: '10,32',
     abovemaxcolor: "extend",
     belowmincolor: "extend",
 });
@@ -237,7 +237,7 @@ var nybSTLegend = L.control({
     position: 'bottomright'
 });
 nybSTLegend.onAdd = function(map) {
-    var src = nybWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=temp_sur&colorscalerange=15,32&PALETTE=rainbow";
+    var src = nybWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=temp_sur&colorscalerange=10,32&PALETTE=rainbow";
     var div = L.DomUtil.create('div', 'info legend');
     div.innerHTML +=
         '<img src="' + src + '" alt="legend">';
@@ -278,7 +278,7 @@ var gomsabSTLayer = L.nonTiledLayer.wms(gomsabWMS, {
     layers: 'temp_sur',
     format: 'image/png',
     transparent: true,
-    colorscalerange: '15,32',
+    colorscalerange: '10,32',
     abovemaxcolor: "extend",
     belowmincolor: "extend",
 });
@@ -339,7 +339,7 @@ var gomsabSTLegend = L.control({
     position: 'bottomright'
 });
 gomsabSTLegend.onAdd = function(map) {
-    var src = gomsabWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=temp_sur&colorscalerange=15,32&PALETTE=rainbow";
+    var src = gomsabWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=temp_sur&colorscalerange=10,32&PALETTE=rainbow";
     var div = L.DomUtil.create('div', 'info legend');
     div.innerHTML +=
         '<img src="' + src + '" alt="legend">';
