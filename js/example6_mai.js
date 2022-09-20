@@ -19,7 +19,7 @@ var TimeInt = date+'/'+date5;
 
 var map = L.map('map', {
     //zoom: 10,
-    zoom: 4.5,
+    zoom: 4.0,
     fullscreenControl: true,
     timeDimensionControl: true,
     timeDimensionControlOptions: {
@@ -36,7 +36,7 @@ var map = L.map('map', {
         currentTime: Date.parse(date)
     },
     //center: [30.5, -81.2]
-    center: [30.00, -75.975]
+    center: [31.00, -75.975]
 });
 
 var sapoWMS = "http://icoast.rc.ufl.edu/thredds/wms/coawst/L0/forecast_qck/NHCI_L0_QCK_best.ncd"
