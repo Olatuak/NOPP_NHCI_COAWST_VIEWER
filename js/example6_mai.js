@@ -19,7 +19,7 @@ var TimeInt = date+'/'+date5;
 
 var map = L.map('map', {
     //zoom: 10,
-    zoom: 5.0,
+    zoom: 4.5,
     fullscreenControl: true,
     timeDimensionControl: true,
     timeDimensionControlOptions: {
@@ -35,7 +35,7 @@ var map = L.map('map', {
         period: "PT1H",
         currentTime: Date.parse(date)
     },
-    //center: [29.8, -81.2]
+    //center: [30.5, -81.2]
     center: [30.00, -75.975]
 });
 
