@@ -14,8 +14,8 @@ today5.setDate(today5.getDate() + numberOfDaysToAdd);
 var date5 = today5.getFullYear()+'-'+(today5.getMonth()+1)+'-'+today5.getDate();
 var TimeInt = date+'/'+date5;
 
-var TimeInt = date+':00:00:00Z/'+date5+':00:00:00Z';
-var TimeInt = date+'T00:00:00Z/'+date5+'T00:00:00Z';
+//var TimeInt = date+':00:00:00Z/'+date5+':00:00:00Z';
+//var TimeInt = date+'T00:00:00Z/'+date5+'T00:00:00Z';
 
 var map = L.map('map', {
     //zoom: 10,
@@ -136,7 +136,7 @@ var sapoSTLegend = L.control({
     position: 'bottomright'
 });
 sapoSTLegend.onAdd = function(map) {
-    var src = sapoWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=temp_sur&colorscalerange=23,32&PALETTE=rainbow";
+    var src = sapoWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=temp_sur&colorscalerange=15,32&PALETTE=rainbow";
     var div = L.DomUtil.create('div', 'info legend');
     div.innerHTML +=
         '<img src="' + src + '" alt="legend">';
@@ -237,7 +237,7 @@ var nybSTLegend = L.control({
     position: 'bottomright'
 });
 nybSTLegend.onAdd = function(map) {
-    var src = nybWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=temp_sur&colorscalerange=23,32&PALETTE=rainbow";
+    var src = nybWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=temp_sur&colorscalerange=15,32&PALETTE=rainbow";
     var div = L.DomUtil.create('div', 'info legend');
     div.innerHTML +=
         '<img src="' + src + '" alt="legend">';
@@ -339,7 +339,7 @@ var gomsabSTLegend = L.control({
     position: 'bottomright'
 });
 gomsabSTLegend.onAdd = function(map) {
-    var src = gomsabWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=temp_sur&colorscalerange=23,32&PALETTE=rainbow";
+    var src = gomsabWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=temp_sur&colorscalerange=15,32&PALETTE=rainbow";
     var div = L.DomUtil.create('div', 'info legend');
     div.innerHTML +=
         '<img src="' + src + '" alt="legend">';
