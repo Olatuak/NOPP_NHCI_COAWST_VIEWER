@@ -14,7 +14,8 @@ today5.setDate(today5.getDate() + numberOfDaysToAdd);
 var date5 = today5.getFullYear()+'-'+(today5.getMonth()+1)+'-'+today5.getDate();
 var TimeInt = date+'/'+date5;
 
-//var TimeInt = date+':00:00:00Z/'+date5+':00:00:00Z';
+var TimeInt = date+':00:00:00Z/'+date5+':00:00:00Z';
+var TimeInt = date+'T00:00:00Z/'+date5+'T00:00:00Z';
 
 var map = L.map('map', {
     //zoom: 10,
