@@ -348,9 +348,8 @@ gomsabSTLegend.onAdd = function(map) {
 
 // Read L1 GOMSAB MAX outputs
 
-//var gomsabWMS_max = "http://icoast.rc.ufl.edu/thredds/wms/coawst/L1/GOMSAB_2km/max/GOMSAB_2km_max_best.ncd"
-
-var gomsabWMS_max = "http://icoast.rc.ufl.edu/thredds/wms/coawst/L1/GOMSAB_2km/max/GOMSAB_2km_max.nc"
+var gomsabWMS_max = "http://icoast.rc.ufl.edu/thredds/wms/coawst/L1/GOMSAB_2km/max/GOMSAB_2km_max_best.ncd"
+//var gomsabWMS_max = "http://icoast.rc.ufl.edu/thredds/wms/coawst/L1/GOMSAB_2km/max/GOMSAB_2km_max.nc"
 
 var gomsabWLmaxLayer = L.tileLayer.wms(gomsabWMS_max, {
     layers: 'zeta_max',
