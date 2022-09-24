@@ -261,7 +261,7 @@ var gomsabWHLayer = L.nonTiledLayer.wms(gomsabWMS, {
     layers: 'Hwave',
     format: 'image/png',
     transparent: true,
-    colorscalerange: '0,5.5',
+    colorscalerange: '0,10',
     abovemaxcolor: "extend",
     belowmincolor: "extend",
 });
@@ -318,7 +318,7 @@ var gomsabWHLegend = L.control({
     position: 'bottomleft'
 });
 gomsabWHLegend.onAdd = function(map) {
-    var src = gomsabWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=Hwave&colorscalerange=0,5.5&PALETTE=rainbow";
+    var src = gomsabWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=Hwave&colorscalerange=0,10&PALETTE=rainbow";
     var div = L.DomUtil.create('div', 'info legend');
     div.innerHTML +=
         '<img src="' + src + '" alt="legend">';
@@ -364,7 +364,7 @@ var gomsabWHmaxLayer = L.nonTiledLayer.wms(gomsabWMS_max, {
     layers: 'Hmax',
     format: 'image/png',
     transparent: true,
-    colorscalerange: '0,5.5',
+    colorscalerange: '0,10',
     abovemaxcolor: "extend",
     belowmincolor: "extend",
 });
@@ -393,7 +393,7 @@ var gomsabWHmaxLegend = L.control({
     position: 'bottomleft'
 });
 gomsabWHmaxLegend.onAdd = function(map) {
-    var src = gomsabWMS_max + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=Hmax&colorscalerange=0,5.5&PALETTE=rainbow";
+    var src = gomsabWMS_max + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=Hmax&colorscalerange=0,10&PALETTE=rainbow";
     var div = L.DomUtil.create('div', 'info legend');
     div.innerHTML +=
         '<img src="' + src + '" alt="legend">';
